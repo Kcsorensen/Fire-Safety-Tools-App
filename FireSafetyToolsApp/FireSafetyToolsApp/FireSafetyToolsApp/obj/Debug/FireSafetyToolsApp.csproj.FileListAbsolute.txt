@@ -1,0 +1,15 @@
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\bin\Debug\FireSafetyToolsApp.dll
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\bin\Debug\FireSafetyToolsApp.pdb
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\bin\Debug\Xamarin.Forms.Core.dll
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\bin\Debug\Xamarin.Forms.Platform.dll
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\bin\Debug\Xamarin.Forms.Xaml.dll
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\bin\Debug\Xamarin.Forms.Core.pdb
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\bin\Debug\Xamarin.Forms.Core.xml
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\bin\Debug\Xamarin.Forms.Platform.pdb
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\bin\Debug\Xamarin.Forms.Xaml.pdb
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\bin\Debug\Xamarin.Forms.Xaml.xml
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\obj\Debug\FireSafetyToolsApp.csprojResolveAssemblyReference.cache
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\obj\Debug\FireSafetyToolsApp.MainPage.xaml.g.cs
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\obj\Debug\FireSafetyToolsApp.App.xaml.g.cs
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\obj\Debug\FireSafetyToolsApp.dll
+c:\users\kcsorensen\documents\visual studio 2017\Projects\FireSafetyToolsApp\FireSafetyToolsApp\FireSafetyToolsApp\obj\Debug\FireSafetyToolsApp.pdb
