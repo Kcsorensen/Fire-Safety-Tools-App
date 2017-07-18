@@ -48,3 +48,7 @@ C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Andr
 C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\res\drawable-hdpi\next.png
+C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\res\drawable\next.png
+C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\res\drawable-xhdpi\next.png
+C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\res\drawable-xxhdpi\next.png
