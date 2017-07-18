@@ -13,5 +13,10 @@ namespace Xamarin
         {
             InitializeComponent();
         }
+
+        private async void CheckMeshSize_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Xamarin.Tools.CheckMeshSize.MainPage());
+        }
     }
 }

@@ -7,7 +7,7 @@
     <TableView Intent="Menu">
         <TableRoot>
             <TableSection Title="FDS">
-                <local:NavigateNextCell Label="Check Mesh Size" />
+                <local:NavigateNextCell Label="Check Mesh Size" Tapped="CheckMeshSize_Tapped" />
             </TableSection>
             <TableSection Title="Miscellaneous">
                 <local:NavigateNextCell Label="Optical Smoke Converter"/>

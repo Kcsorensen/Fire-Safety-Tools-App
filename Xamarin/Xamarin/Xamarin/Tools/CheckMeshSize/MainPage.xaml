@@ -2,9 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xamarin.Tools.CheckMeshSize.MainPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <TableView>
+        <TableRoot>
+            <TableSection>
+                <EntryCell Keyboard="Numeric" Label="Ambient Temperature" Placeholder="Enter Value here"/>
+                <EntryCell Keyboard="Numeric" Label="Specific Heat " Placeholder="Enter Value here"/>
+                <EntryCell Keyboard="Numeric" Label="Ambient Density" Placeholder="Enter Value here"/>
+            </TableSection>
+        </TableRoot>
+    </TableView>
 </ContentPage>

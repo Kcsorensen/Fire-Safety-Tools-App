@@ -11,8 +11,8 @@
 namespace Xamarin.Tools.CheckMeshSize {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\kcs\\Documents\\GitHub\\Fire-Safety-Tools-App\\Xamarin\\Xamarin\\Xamarin\\Tools" +
-        "\\CheckMeshSize\\MainPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\kcsorensen\\Documents\\GitHub\\Fire-Safety-Tools-App\\Xamarin\\Xamarin\\Xamari" +
+        "n\\Tools\\CheckMeshSize\\MainPage.xaml")]
     public partial class MainPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
