@@ -31,3 +31,4 @@ C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamar
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.Extensions.NavigateNextCell.xaml.g.cs
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.dll
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.pdb
+C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.csprojResolveAssemblyReference.cache

@@ -3,12 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xamarin.Tools.CheckMeshSize.MainPage">
 
-    <TableView>
+    <TableView  HasUnevenRows="True">
         <TableRoot>
-            <TableSection>
-                <EntryCell Keyboard="Numeric" Label="Ambient Temperature" Placeholder="Enter Value here"/>
-                <EntryCell Keyboard="Numeric" Label="Specific Heat " Placeholder="Enter Value here"/>
-                <EntryCell Keyboard="Numeric" Label="Ambient Density" Placeholder="Enter Value here"/>
+            <TableSection Title="Ambient Conditions">
+                <EntryCell Keyboard="Numeric" Label="Temperature" Placeholder="[°C]" Text="20" HorizontalTextAlignment="End"/>
+                <EntryCell Keyboard="Numeric" Label="Specific Heat " Placeholder="[kJ/kg°C]" Text="1.0"/>
+                <EntryCell x:Name="entryCell" Keyboard="Numeric" Label="Density" Placeholder="[kg/m³]" Text="1.205"/>
+
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="15, 8, 10, 8">
+                        <Label Text="Temperature" VerticalOptions="Center"/>
+                        <Entry Keyboard="Numeric" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"/>
+                        <Label Text="[°C]" VerticalOptions="Center"/>
+                    </StackLayout>
+                </ViewCell>
             </TableSection>
         </TableRoot>
     </TableView>
