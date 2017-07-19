@@ -11,8 +11,8 @@
 namespace Xamarin {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\kcs\\Documents\\GitHub\\Fire-Safety-Tools-App\\Xamarin\\Xamarin\\Xamarin\\App.x" +
-        "aml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\kcsorensen\\Documents\\GitHub\\Fire-Safety-Tools-App\\Xamarin\\Xamarin\\Xamari" +
+        "n\\App.xaml")]
     public partial class App : global::Xamarin.Forms.Application {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

@@ -11,17 +11,33 @@
 namespace Xamarin.Tools.CheckMeshSize {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\kcs\\Documents\\GitHub\\Fire-Safety-Tools-App\\Xamarin\\Xamarin\\Xamarin\\Tools" +
-        "\\CheckMeshSize\\MainPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\kcsorensen\\Documents\\GitHub\\Fire-Safety-Tools-App\\Xamarin\\Xamarin\\Xamari" +
+        "n\\Tools\\CheckMeshSize\\MainPage.xaml")]
     public partial class MainPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.EntryCell entryCell;
+        private global::Xamarin.Extensions.DataEntryCell heatReleaseRate;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Extensions.DataEntryCell cellSize;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Extensions.DataEntryCell temperature;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Extensions.DataEntryCell specificHeat;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Extensions.DataEntryCell gravity;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainPage));
-            entryCell = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.EntryCell>(this, "entryCell");
+            heatReleaseRate = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Extensions.DataEntryCell>(this, "heatReleaseRate");
+            cellSize = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Extensions.DataEntryCell>(this, "cellSize");
+            temperature = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Extensions.DataEntryCell>(this, "temperature");
+            specificHeat = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Extensions.DataEntryCell>(this, "specificHeat");
+            gravity = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Extensions.DataEntryCell>(this, "gravity");
         }
     }
 }
