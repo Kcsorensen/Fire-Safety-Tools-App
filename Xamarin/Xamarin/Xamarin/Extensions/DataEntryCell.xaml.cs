@@ -19,10 +19,14 @@ namespace Xamarin.Extensions
             BindableProperty.Create("Unit", typeof(string), typeof(ViewCell));
 
         public static readonly BindableProperty ValueProperty =
-        BindableProperty.Create("Value", typeof(string), typeof(ViewCell), null, defaultBindingMode: BindingMode.TwoWay, validateValue: null, propertyChanged: (bindable, oldValue, newValue) => 
+        BindableProperty.Create("Value", typeof(string), typeof(ViewCell), null, defaultBindingMode: BindingMode.TwoWay, validateValue: null, propertyChanged: (bindable, oldValue, newValue) =>
         {
-            ((DataEntryCell)bindable).OnPropertyChanged();
+            if (oldValue != newValue)
+                ((DataEntryCell)bindable).OnPropertyChanged();
         });
+
+        //public static readonly BindableProperty ValueProperty =
+        //    BindableProperty.Create("Value", typeof(string), typeof(ViewCell));
 
         public static readonly BindableProperty PlaceholderProperty =
             BindableProperty.Create("Placeholder", typeof(string), typeof(ViewCell));
@@ -54,8 +58,6 @@ namespace Xamarin.Extensions
         public DataEntryCell()
         {
             InitializeComponent();
-
-            BindingContext = this;
         }
     }
 }

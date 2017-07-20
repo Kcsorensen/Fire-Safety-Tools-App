@@ -13,7 +13,7 @@ namespace Xamarin
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Xamarin.Tools.CheckMeshSize.MainPage());
+            MainPage = new NavigationPage(new Xamarin.MainPage());
         }
 
         protected override void OnStart()

@@ -12,22 +12,12 @@ namespace Xamarin.Tools.CheckMeshSize
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        public string HeatReleaseRate { get; set; }
-
-        //private double density;
-
-        //public double Density
-        //{
-        //    get { return density; }
-        //    set { density = value; }
-        //}
-
-
+        public double HeatReleaseRate { get; set; }
         public double Density { get; set; }
-        public string SpecificHeat { get; set; }
-        public string Gravity { get; set; }
-        public string CellSize { get; set; }
-        public string Temperature { get; set; }
+        public double SpecificHeat { get; set; }
+        public double Gravity { get; set; }
+        public double CellSize { get; set; }
+        public double Temperature { get; set; }
 
         public MainPage()
         {
@@ -35,36 +25,50 @@ namespace Xamarin.Tools.CheckMeshSize
 
             // Initial Values
             Density = 1.205;
-            SpecificHeat = "1.0";
-            Gravity = "9.82";
-            Temperature = "20.0";
+            SpecificHeat = 1.0;
+            Gravity = 9.82;
+            Temperature = 20.0;
 
-            BindingContext = this;
+            parentStackLayout.BindingContext = this;
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Calculate_Clicked(object sender, EventArgs e)
         {
-            //if (double.TryParse(heatReleaseRate.Value, out double _heatReleaseRate) &&
-            //    double.TryParse(density.Value, out double _density) &&
-            //    double.TryParse(specificHeat.Value, out double _specificHeat) &&
-            //    double.TryParse(gravity.Value, out double _gravity) &&
-            //    double.TryParse(cellSize.Value, out double _cellSize) &&
-            //    double.TryParse(temperature.Value, out double _temperature))
-            //{
-                //var fireDiameter = Math.Pow((_heatReleaseRate / (_density * _specificHeat * (273 + _temperature) * Math.Sqrt(_gravity))), 2.0 / 5.0);
-                //var ratio = fireDiameter / _cellSize;
+            var fireDiameter = Math.Pow((HeatReleaseRate / (Density * SpecificHeat * (273 + Temperature) * Math.Sqrt(Gravity))), 2.0 / 5.0);
+            var ratio = fireDiameter / CellSize;            
 
-                //DisplayAlert("Result", ratio.ToString(), "OK");
-            //}
-            //else
-            //{
-            //    DisplayAlert("Result", "Value has to be numeric", "OK");
-            //}
+            if (double.IsNaN(ratio))
+            {
+                await DisplayAlert("Result", "Value has to be numeric", "OK");
+            }
+            else if (double.IsInfinity(ratio))
+            {
+                await DisplayAlert("Result", "Cell Size or Ambient Conditions cannot be zero", "OK");
+            }
+            else
+            {
+                Application.Current.Properties["HeatReleaseRate_CheckMeshSize"] = HeatReleaseRate;
+                Application.Current.Properties["Density_CheckMeshSize"] = Density;
+                Application.Current.Properties["SpecificHeat_CheckMeshSize"] = SpecificHeat;
+                Application.Current.Properties["Gravity_CheckMeshSize"] = Gravity;
+                Application.Current.Properties["CellSize_CheckMeshSize"] = CellSize;
+                Application.Current.Properties["Temperature_CheckMeshSize"] = Temperature;
+                Application.Current.Properties["FireDiameter_CheckMeshSize"] = fireDiameter;
+                Application.Current.Properties["Ratio_CheckMeshSize"] = ratio;
+
+                await Navigation.PushAsync(new ResultPage());
+            }
         }
 
-        public class Data
+        private void Info_Clicked(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new InfoPage());
+        }
 
+        private void Clear_Clicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }
+

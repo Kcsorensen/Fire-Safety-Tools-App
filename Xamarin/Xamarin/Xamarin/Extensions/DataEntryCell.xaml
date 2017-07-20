@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Xamarin.Extensions.DataEntryCell">
+             x:Class="Xamarin.Extensions.DataEntryCell"
+             x:Name="dataEntryCell">
 
-    <StackLayout Orientation="Horizontal" Padding="15, 8, 10, 8">
+    <StackLayout BindingContext="{x:Reference dataEntryCell}" x:Name="stackLayout" Orientation="Horizontal" Padding="15, 8, 10, 8">
         <Label Text="{Binding Label}" VerticalOptions="Center"/>
         <Entry Keyboard="Numeric" Text="{Binding Value}" Placeholder="{Binding Placeholder}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"/>
         <Label Text="{Binding Unit}" VerticalOptions="Center"/>

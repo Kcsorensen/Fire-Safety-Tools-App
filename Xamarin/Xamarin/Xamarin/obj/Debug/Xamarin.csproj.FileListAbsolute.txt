@@ -32,4 +32,6 @@ C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamar
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.pdb
 C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.csprojResolveAssemblyReference.cache
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.Extensions.DataEntryCell.xaml.g.cs
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.Tools.CheckMeshSize.ResultPage.xaml.g.cs
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.csprojResolveAssemblyReference.cache
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.Tools.CheckMeshSize.InfoPage.xaml.g.cs

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamarin.Tools.CheckMeshSize.InfoPage">
+
+    <ScrollView>
+        <StackLayout Style="{StaticResource defaultParentPageStyle}">
+            <Label Text="Refereces used" FontSize="Medium"/>
+            <Label Text="A reference within the FDS User Guide (Verification and Validation of Selected Fire Models for Nuclear Power Plant Applications. NUREG 1824, United States Nuclear Regulatory Commission, 2007) used a D*/dx ratio between 4 and 16 to accurately resolve fires in various scenarios."/>
+            <Label Text="From the FDS User Guide: These values were used to adequately resolve plume dynamics, along with other geometrical characteristics of the models as well. This range does not indicate what values to use for all models, only what values worked well for that particular set of models."/>
+            <Label Text="Choosing the right mesh dimension" FontSize="Medium"/>
+            <Label Text="The most important numerical parameter in FDS is the grid cell size. CFD models solve an approximate form of the conservation equations of mass, momentum, and energy on a numerical grid. The error associated with the discretization of the partial derivatives is a function of the size of the grid cells and the type of differencing used. FDS uses second-order accurate approximations of both the temporal and spatial derivatives of the Navier-Stokes equations, meaning that the discretization error is proportional to the square of the time step or cell size. In theory, reducing the grid cell size by a factor of 2 reduces the discretization error by a factor of 4. However, it also increases the computing time by a factor of 16 (a factor of 2 for the temporal and each spatial dimension). Clearly, there is a point of diminishing returns as one refines the numerical mesh. Determining what size grid cell to use in any given calculation is known as a grid sensitivity study."/>
+            <Label Text="In general, you should build an FDS input file using a relatively coarse mesh, and then gradually refine the mesh until you do not see appreciable differences in your results."/>
+            <Label Text="A point of diminishing returns is reached when the improvement in the quality of the results is outweighed by the cost of the computation. When this point is reached depends on the application. It also depends on the quantities that are of interest. Some quantities, like hot gas layer temperature or height, do not typically require as fine a numerical grid as quantities such as the heat flux to targets near the fire." />
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

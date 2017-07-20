@@ -4,27 +4,30 @@
              xmlns:extensions="clr-namespace:Xamarin.Extensions"
              xmlns:local="clr-namespace:Xamarin.Tools.CheckMeshSize"
              x:Class="Xamarin.Tools.CheckMeshSize.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Test" Order="Primary" Text="Clear" Clicked="Clear_Clicked"/>
+        <ToolbarItem Name="Test" Order="Secondary" Icon="info.png" Text="About" Clicked="Info_Clicked"/>
+    </ContentPage.ToolbarItems>
     
-    <StackLayout Orientation="Vertical">
+    <StackLayout x:Name="parentStackLayout" Orientation="Vertical">
         <TableView HasUnevenRows="True">
 
             <TableRoot>
                 <TableSection Title="Fire Conditions">
-                    <extensions:DataEntryCell x:Name="heatReleaseRate" Label="Heat Release Rate" Unit="[kW]" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Heat Release Rate" Unit="[kW]" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
                 </TableSection>
                 <TableSection Title="Mesh Conditions">
-                    <extensions:DataEntryCell x:Name="cellSize" Label="Cell Size" Unit="[m]" Value="{Binding CellSize}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Cell Size" Unit="[m]" Value="{Binding CellSize}" Placeholder="Enter value"/>
                 </TableSection>
                 <TableSection Title="Ambient Conditions">
-                    <EntryCell Label="Test" Text="{Binding Density}" />
-                    <extensions:DataEntryCell x:Name="temperature" Label="Temperature" Unit="[°C]" Value="{Binding Temperature}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell x:Name="specificHeat" Label="Specific Heat" Unit="[kJ/kg°C]" Value="{Binding SpecificHeat}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Temperature" Unit="[°C]" Value="{Binding Temperature}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Specific Heat" Unit="[kJ/kg°C]" Value="{Binding SpecificHeat}" Placeholder="Enter value"/>
                     <extensions:DataEntryCell Label="Density" Unit="[kg/m³]" Value="{Binding Path=Density}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell x:Name="gravity" Label="Gravity" Unit="[m/s²]" Value="{Binding Gravity}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Gravity" Unit="[m/s²]" Value="{Binding Gravity}" Placeholder="Enter value"/>
                 </TableSection>
             </TableRoot>
         </TableView>
-        <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" Clicked="Button_Clicked"/>
+        <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" Clicked="Calculate_Clicked"/>
     </StackLayout>
 
 </ContentPage>
