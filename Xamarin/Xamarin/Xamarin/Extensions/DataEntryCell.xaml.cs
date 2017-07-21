@@ -21,8 +21,7 @@ namespace Xamarin.Extensions
         public static readonly BindableProperty ValueProperty =
         BindableProperty.Create("Value", typeof(string), typeof(ViewCell), null, defaultBindingMode: BindingMode.TwoWay, validateValue: null, propertyChanged: (bindable, oldValue, newValue) =>
         {
-            if (oldValue != newValue)
-                ((DataEntryCell)bindable).OnPropertyChanged();
+            ((DataEntryCell)bindable).OnPropertyChanged();
         });
 
         //public static readonly BindableProperty ValueProperty =
