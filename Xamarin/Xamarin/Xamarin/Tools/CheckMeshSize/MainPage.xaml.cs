@@ -1,24 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using SQLite;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Persistance;
 
 namespace Xamarin.Tools.CheckMeshSize
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        private SQLiteAsyncConnection _connection;
         public DataModel DataModel { get; set; }
 
         public MainPage()
         {
+            InitializeComponent();
+
             DataModel = new DataModel();
 
-            InitializeComponent();
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+
+            _connection.CreateTableAsync<CheckMeshSizeTable>();
+
+            var table = _connection.Table<CheckMeshSizeTable>().ToListAsync();
 
             //DataModel.UpdateValuesAsync();
         }
