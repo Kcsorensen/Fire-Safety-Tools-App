@@ -110,3 +110,16 @@ C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamar
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\res\drawable-hdpi\info.png
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\res\drawable-xhdpi\info.png
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\res\drawable-xxhdpi\info.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\PCLStorage.Abstractions.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\PCLStorage.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\SQLite-net.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\SQLitePCLRaw.batteries_green.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\SQLitePCLRaw.core.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\SQLitePCLRaw.lib.e_sqlite3.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\PCLStorage.xml
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\PCLStorage.Abstractions.xml
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\SQLite-net.xml
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\bin\Debug\SQLite-net.dll.mdb
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin.Android\obj\Debug\android\assets\SQLite-net.dll.mdb

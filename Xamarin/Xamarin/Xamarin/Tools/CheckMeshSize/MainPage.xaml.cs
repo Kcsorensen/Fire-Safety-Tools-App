@@ -18,54 +18,58 @@ namespace Xamarin.Tools.CheckMeshSize
         {
             DataModel = new DataModel();
 
-            BindingContext = DataModel;
+            DataModel.LoadDataBaseAsync();
+
+            BindingContext = DataModel.DB;
 
             InitializeComponent();
-        }
 
-        private async void Calculate_Clicked(object sender, EventArgs e)
-        {
-            // Call calculate method to get values for fireDiameter and ratio
-            await DataModel.CalculateAsync();
-
-            if (double.IsNaN(DataModel.Ratio))
-            {
-                await DisplayAlert("Result", "Value has to be numeric", "OK");
-            }
-            else if (double.IsInfinity(DataModel.Ratio))
-            {
-                await DisplayAlert("Result", "Cell Size or Ambient Conditions cannot be zero", "OK");
-            }
-            else
-            {
-                // Save all updated values to the Application.Current.Property DB
-                await DataModel.SaveAllValuesAsync();
-
-
-
-                await Navigation.PushAsync(new ResultPage());
-            }
-
-
+            //DataModel.UpdateValuesAsync();
         }
 
         protected override void OnAppearing()
         {
-            DataModel.UpdateValuesAsync();
+            //await DataModel.LoadDataBaseAsync();
 
             base.OnAppearing();
         }
+
+        private void Calculate_Clicked(object sender, EventArgs e)
+        {
+            //// Call calculate method to get values for fireDiameter and ratio
+            //await DataModel.CalculateAsync();
+
+            //if (double.IsNaN(DataModel.Ratio))
+            //{
+            //    await DisplayAlert("Result", "Value has to be numeric", "OK");
+            //}
+            //else if (double.IsInfinity(DataModel.Ratio))
+            //{
+            //    await DisplayAlert("Result", "Cell Size or Ambient Conditions cannot be zero", "OK");
+            //}
+            //else
+            //{
+            //    // Save all updated values to the Application.Current.Property DB
+            //    await DataModel.SaveAllValuesAsync();
+
+
+
+            //    await Navigation.PushAsync(new ResultPage());
+            //}
+
+
+        }
+
+        
 
         private void Info_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new InfoPage());
         }
 
-        private async void Clear_Clicked(object sender, EventArgs e)
+        private void Clear_Clicked(object sender, EventArgs e)
         {
-            await DataModel.ClearAllValuesAsync();
-
-
+            //await DataModel.ClearAllValuesAsync();
         }
     }
 }

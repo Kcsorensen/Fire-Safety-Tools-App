@@ -35,3 +35,10 @@ C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamar
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.Tools.CheckMeshSize.ResultPage.xaml.g.cs
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.csprojResolveAssemblyReference.cache
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\obj\Debug\Xamarin.Tools.CheckMeshSize.InfoPage.xaml.g.cs
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\bin\Debug\SQLite-net.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\bin\Debug\SQLite.Net.Async.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\bin\Debug\SQLite.Net.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\bin\Debug\SQLitePCLRaw.batteries_green.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\bin\Debug\SQLitePCLRaw.core.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Xamarin\Xamarin\Xamarin\bin\Debug\SQLite-net.xml
