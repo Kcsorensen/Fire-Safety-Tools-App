@@ -10,7 +10,6 @@ namespace Xamarin.Tools.CheckMeshSize
 {
     public class DataModel 
     {
-
         #region private fields
         private SQLiteAsyncConnection _connection;
 
@@ -24,7 +23,7 @@ namespace Xamarin.Tools.CheckMeshSize
 
         #region public properties
 
-        public DataBase DB { get; set; }
+        public CheckMeshSizeTable DB { get; set; }
 
         //public double HeatReleaseRate
         //{
@@ -75,9 +74,9 @@ namespace Xamarin.Tools.CheckMeshSize
         
         public async Task LoadDataBaseAsync()
         {
-            //await _connection.CreateTableAsync<DataBase>();
+            await _connection.CreateTableAsync<CheckMeshSizeTable>();
 
-             DB = new DataBase()
+            var db = new CheckMeshSizeTable()
             {
                 HeatReleaseRate = 1234,
                 CellSize = 0.2,
@@ -87,9 +86,9 @@ namespace Xamarin.Tools.CheckMeshSize
                 Temperature = 20
             };
 
-            //await _connection.InsertAsync(db);
+            await _connection.InsertAsync(db);
 
-            //DB = await _connection.GetAsync<DataBase>(0);
+            DB = await _connection.Table<CheckMeshSizeTable>().FirstAsync();
         }
 
         //public void UpdateValuesAsync()

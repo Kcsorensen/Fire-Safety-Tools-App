@@ -18,18 +18,18 @@ namespace Xamarin.Tools.CheckMeshSize
         {
             DataModel = new DataModel();
 
-            DataModel.LoadDataBaseAsync();
-
-            BindingContext = DataModel.DB;
-
             InitializeComponent();
 
             //DataModel.UpdateValuesAsync();
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             //await DataModel.LoadDataBaseAsync();
+
+            await DataModel.LoadDataBaseAsync();
+
+            BindingContext = DataModel.DB;
 
             base.OnAppearing();
         }
