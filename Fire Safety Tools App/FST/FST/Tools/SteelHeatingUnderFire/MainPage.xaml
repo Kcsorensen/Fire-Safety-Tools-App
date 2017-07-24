@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:FST.Extensions"
+             x:Class="FST.Tools.SteelHeatingUnderFire.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Test" Order="Primary" Text="Clear" Clicked="Clear_Clicked"/>
+        <ToolbarItem Name="Test" Order="Secondary" Icon="info.png" Text="About" Clicked="Info_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout x:Name="parentStackLayout" Orientation="Vertical" >
+        <TableView HasUnevenRows="True">
+            <TableRoot>
+                <TableSection Title="Simulation Settings">
+                    <extensions:DataEntryCell Label="Simulation Time" Unit="hours" Value="{Binding CellSize}" Placeholder="Enter value"/>
+                </TableSection>
+                <TableSection Title="Steel Conditions">
+                    <extensions:DataEntryCell Label="Section Factor" Unit="1/m" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Density" Unit="kg/m³" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Specific Heat" Unit="J/kg°C" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Emissivity" Unit="-" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                </TableSection>
+                <TableSection Title="Insulation Conditions">
+                    <extensions:DataEntryCell Label="Is the Steel Protected?" Unit="-" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Thickness" Unit="m" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Thermal Conductivity" Unit="W/m°C" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Density" Unit="kg/m³" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                </TableSection>
+                
+                <TableSection Title="Fire Conditions">
+                    <extensions:DataEntryCell Label="Fire Curve" Unit="-" Value="{Binding Temperature}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Heat Transfer Coefficient" Unit="W/m²°C" Value="{Binding SpecificHeat}" Placeholder="Enter value"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+
+        <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" Clicked="Calculate_Clicked"/>
+    </StackLayout>
+    
+</ContentPage>

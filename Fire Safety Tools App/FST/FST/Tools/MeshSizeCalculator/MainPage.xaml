@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:FST.Extensions"
+             x:Class="FST.Tools.MeshSizeCalculator.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Test" Order="Primary" Text="Clear" Clicked="Clear_Clicked"/>
+        <ToolbarItem Name="Test" Order="Secondary" Icon="info.png" Text="About" Clicked="Info_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout x:Name="parentStackLayout" Orientation="Vertical" >
+        <TableView HasUnevenRows="True">
+            <TableRoot>
+                <TableSection Title="Mesh Conditions">
+                    <extensions:DataEntryCell Label="X length" Unit="[m]" Value="{Binding CellSize}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Y length" Unit="[m]" Value="{Binding CellSize}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Z height" Unit="[m]" Value="{Binding CellSize}" Placeholder="Enter value"/>
+                </TableSection>
+                <TableSection Title="Fire Conditions">
+                    <extensions:DataEntryCell Label="Heat Release Rate" Unit="[kW]" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                </TableSection>
+                <TableSection Title="Ambient Conditions">
+                    <extensions:DataEntryCell Label="Temperature" Unit="[°C]" Value="{Binding Temperature}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Specific Heat" Unit="[kJ/kg°C]" Value="{Binding SpecificHeat}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Density" Unit="[kg/m³]" Value="{Binding Density}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Gravity" Unit="[m/s²]" Value="{Binding Gravity}" Placeholder="Enter value"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+
+        <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" Clicked="Calculate_Clicked"/>
+
+    </StackLayout>
+
+</ContentPage>

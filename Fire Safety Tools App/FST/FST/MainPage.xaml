@@ -8,10 +8,11 @@
         <TableRoot>
             <TableSection Title="FDS">
                 <local:NavigateNextCell Label="Check Mesh Size" Tapped="CheckMeshSize_Tapped" />
+                <local:NavigateNextCell Label="Mesh Size Calculator" Tapped="MeshSizeCalculator_Tapped" />
+                <local:NavigateNextCell Label="Transient Steel Heating Calculator" Tapped="SteelHeatingUnderFire_Tapped" />
             </TableSection>
             <TableSection Title="Miscellaneous">
                 <local:NavigateNextCell Label="Optical Smoke Converter"/>
-
             </TableSection>
         </TableRoot>
     </TableView>
