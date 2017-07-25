@@ -65,9 +65,11 @@
     <Compile Include="Tools\MeshSizeCalculator\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tools\SteelHeatingUnderFire\DataModel.cs" />
     <Compile Include="Tools\SteelHeatingUnderFire\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tools\SteelHeatingUnderFire\SteelHeatingTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
