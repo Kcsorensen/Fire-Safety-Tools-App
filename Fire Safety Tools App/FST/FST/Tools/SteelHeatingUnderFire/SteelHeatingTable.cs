@@ -19,7 +19,7 @@ namespace FST.Tools.SteelHeatingUnderFire
         public double SteelSpecificHeat { get; set; }
         public double SteelEmissivity { get; set; }
 
-        public int FireCurveType { get; set; }
+        public string SelectedFireCurveType { get; set; }
         public double HeatTransferCoeffficient { get; set; }
 
         public bool IsSteelProtected { get; set; }

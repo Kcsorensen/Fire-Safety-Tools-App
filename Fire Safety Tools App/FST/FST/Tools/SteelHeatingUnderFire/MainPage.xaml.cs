@@ -1,6 +1,7 @@
 ﻿using FST.Persistance;
 using SQLite;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -36,7 +37,7 @@ namespace FST.Tools.SteelHeatingUnderFire
                     SteelDensity = 7850,
                     SteelSpecificHeat = 600,
                     SteelEmissivity = 0.6,
-                    FireCurveType = 0,
+                    SelectedFireCurveType = FireCurveTypes.ISO834,
                     HeatTransferCoeffficient = 25,
                     IsSteelProtected = true,
                     IsoThickness = 0.05,
@@ -54,7 +55,7 @@ namespace FST.Tools.SteelHeatingUnderFire
             DataModel.SteelDensity = db.SteelDensity;
             DataModel.SteelSpecificHeat = db.SteelSpecificHeat;
             DataModel.SteelEmissivity = db.SteelEmissivity;
-            DataModel.FireCurveType = db.FireCurveType;
+            DataModel.SelectedFireCurveType = db.SelectedFireCurveType;
             DataModel.HeatTransferCoeffficient = db.HeatTransferCoeffficient;
             DataModel.IsSteelProtected = db.IsSteelProtected;
             DataModel.IsoThickness = db.IsoThickness;
@@ -79,6 +80,24 @@ namespace FST.Tools.SteelHeatingUnderFire
 
         private async Task Calculate_Clicked(object sender, EventArgs e)
         {
+            var db = await _connection.Table<SteelHeatingTable>().FirstAsync();
+
+            // Overfører værdier fra db til DataModel
+            db.SimulationTime = DataModel.SimulationTime;
+            db.SteelSectionFactor = DataModel.SteelSectionFactor;
+            db.SteelDensity = DataModel.SteelDensity;
+            db.SteelSpecificHeat = DataModel.SteelSpecificHeat;
+            db.SteelEmissivity = DataModel.SteelEmissivity;
+            db.SelectedFireCurveType = DataModel.SelectedFireCurveType;
+            db.HeatTransferCoeffficient = DataModel.HeatTransferCoeffficient;
+            db.IsSteelProtected = DataModel.IsSteelProtected;
+            db.IsoThickness = DataModel.IsoThickness;
+            db.IsoThermalConductivity = DataModel.IsoThermalConductivity;
+            db.IsoDensity = DataModel.IsoDensity;
+            db.IsoSpecificHeat = DataModel.IsoSpecificHeat;
+
+            await _connection.UpdateAsync(db);
+
             await DataModel.UpdateFireCurveAsync();
 
             var lineSeries = await DataModel.GetLinesSeriesForPlotModelAsync();

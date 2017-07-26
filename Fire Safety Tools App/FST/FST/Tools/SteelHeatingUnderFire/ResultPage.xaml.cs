@@ -14,10 +14,27 @@ namespace FST.Tools.SteelHeatingUnderFire
         {
             InitializeComponent();
 
-            var plotModel = new PlotModel { Title = "Transient Steel Heating" };
-            
-            plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
-            plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left });
+            var plotModel = new PlotModel { Title = "Steal Heating vs Time" };
+
+            plotModel.Axes.Add(new LinearAxis
+            {
+                Title = "Time [min]",
+                Position = AxisPosition.Bottom,
+                IsZoomEnabled = false,
+                IsPanEnabled = false,
+                MajorGridlineStyle = LineStyle.Dot,
+                Minimum = 0.0
+            });
+
+            plotModel.Axes.Add(new LinearAxis
+            {
+                Title = "Temperature [°C]",
+                Position = AxisPosition.Left,
+                IsZoomEnabled = false,
+                IsPanEnabled = false,
+                MajorGridlineStyle = LineStyle.Dot,
+                Minimum = 0.0
+            });
 
             plotModel.Series.Add(lineSeries);
 

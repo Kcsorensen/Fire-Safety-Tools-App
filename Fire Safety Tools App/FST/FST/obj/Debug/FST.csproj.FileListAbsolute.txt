@@ -96,3 +96,4 @@ C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\OxyPlot.xml
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\OxyPlot.Xamarin.Forms.pdb
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\OxyPlot.Xamarin.Forms.xml
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\obj\Debug\FST.Extensions.CustomPicker.xaml.g.cs

@@ -18,7 +18,7 @@ namespace FST.Tools.SteelHeatingUnderFire
         private double _steelSpecificHeat;
         private double _isoSpecificHeat;
         private double _steelEmissivity;
-        private int _fireCurveType;
+        private string _selectedFireCurveType;
         private double _heatTransferCoeffficient;
         private bool _isSteelProtected;
         private double _isoThickness;
@@ -27,9 +27,6 @@ namespace FST.Tools.SteelHeatingUnderFire
 
         private double _dt;
         private double _epsilon;
-        private List<double> _T_steel;
-        //private List<double> _dT_steel;
-        private List<double> _t;
         #endregion
 
         #region public properties
@@ -58,10 +55,10 @@ namespace FST.Tools.SteelHeatingUnderFire
             get { return _steelEmissivity; }
             set { SetValue(ref _steelEmissivity, value); }
         }
-        public int FireCurveType
+        public string SelectedFireCurveType
         {
-            get { return _fireCurveType; }
-            set { SetValue(ref _fireCurveType, value); }
+            get { return _selectedFireCurveType; }
+            set { SetValue(ref _selectedFireCurveType, value); }
         }
         public double HeatTransferCoeffficient
         {
@@ -94,6 +91,7 @@ namespace FST.Tools.SteelHeatingUnderFire
             set { SetValue(ref _isoSpecificHeat, value); }
         }
 
+        public List<string> ListOfFireCurveTypes { get; set; }
         public List<Tuple<double, double>> FireCurve { get; set; }
 
 
@@ -101,6 +99,12 @@ namespace FST.Tools.SteelHeatingUnderFire
 
         public DataModel()
         {
+            ListOfFireCurveTypes = new List<string>()
+            {
+                FireCurveTypes.ISO834,
+                FireCurveTypes.ASTME119
+            };
+
             // Hver time deles op i 120 dele
             _dt = 1.0 / 120;
 
@@ -115,10 +119,10 @@ namespace FST.Tools.SteelHeatingUnderFire
             int timeSteps = Convert.ToInt32(Math.Ceiling( SimulationTime / _dt ));
 
             // Clear listen for tid.
-            _t = new List<double>();
+            List<double> _t = new List<double>();
 
             // Clear listen for Stålets temperatur og sæt første værdi til 20 °C
-            _T_steel = new List<double>() { 20 };
+            List<double> _T_steel = new List<double>() { 20 };
 
             // Clear listen med data for FireCurve og sæt første dataset til tid = 0 min og ståltemperatur = 20 °C.
             FireCurve = new List<Tuple<double, double>>() { new Tuple<double, double>(0, 20) };
@@ -132,13 +136,13 @@ namespace FST.Tools.SteelHeatingUnderFire
                 }
             });
 
-            if (FireCurveType == 0)
+            if (SelectedFireCurveType == FireCurveTypes.ISO834)
             {
                 for (int i = 0; i < timeSteps; i++)
                 {
                     var _dt_half = _t[i] + (_dt * 60) / 2.0;
 
-                    var fireTemperature = await _getFireCurveValueAsync(_dt_half, FireCurveType);
+                    var fireTemperature = await _getFireCurveValueAsync(_dt_half, SelectedFireCurveType);
 
                     var _dT_steel = await _getDeltaSteelTemperatureAsync(_T_steel[i], fireTemperature);
 
@@ -154,6 +158,8 @@ namespace FST.Tools.SteelHeatingUnderFire
             var lineSeries = new LineSeries()
             {
                 MarkerType = MarkerType.None,
+                Color = OxyColors.Red,
+                
             };
 
             await Task.Run(() =>
@@ -173,13 +179,13 @@ namespace FST.Tools.SteelHeatingUnderFire
         /// <param name="time"></param>
         /// <param name="fireCurveType"></param>
         /// <returns></returns>
-        private async Task<double> _getFireCurveValueAsync(double time, int fireCurveType)
+        private async Task<double> _getFireCurveValueAsync(double time, string fireCurveType)
         {
             double result = 0.0;
 
             await Task.Run(() =>
             {
-                if (fireCurveType == 0)
+                if (fireCurveType == FireCurveTypes.ISO834)
                 {
                     result = 20.0 + 345.0 * Math.Log10(8.0 * time + 1);
                 }

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FST.Extensions.CustomPicker"
+             x:Name="customPicker">
+
+    <Grid BindingContext="{x:Reference customPicker}" Padding="15, 8, 10, 8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Text="{Binding Label}" VerticalOptions="Center" HorizontalOptions="Start"/>
+        <Picker Grid.Column="1" Title="Select Type"
+                                    ItemsSource="{Binding ItemSource}" 
+                                    SelectedItem="{Binding SelectedItem}"
+                                    VerticalOptions="Center"/>
+    </Grid>
+
+
+</ViewCell>

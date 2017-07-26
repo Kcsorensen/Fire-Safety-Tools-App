@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:extensions="clr-namespace:FST.Extensions"
+             xmlns:local="clr-namespace:FST.Tools.SteelHeatingUnderFire"
              x:Class="FST.Tools.SteelHeatingUnderFire.MainPage">
 
     <ContentPage.ToolbarItems>
@@ -23,6 +24,7 @@
                 </TableSection>
                 <TableSection Title="Insulation Conditions">
                     <SwitchCell x:Name="isSteelProtected" Text="Is the Steel Protected?" On="{Binding IsSteelProtected, Mode=TwoWay}"/>
+
                     <extensions:DataEntryCell Label="Thickness" Unit="m" 
                                               Value="{Binding IsoThickness}" 
                                               Placeholder="Enter value" 
@@ -35,15 +37,16 @@
                                               Value="{Binding IsoDensity}" 
                                               Placeholder="Enter value"
                                               IsEnabled="{Binding Source={x:Reference isSteelProtected}, Path=On}"/>
-
                 </TableSection>
-                
                 <TableSection Title="Fire Conditions">
-                    <extensions:DataEntryCell Label="Fire Curve" Unit="-" Value="{Binding FireCurve}" Placeholder="Enter value"/>
+                    <extensions:CustomPicker Label="Fire Curve" 
+                                             ItemSource="{Binding ListOfFireCurveTypes}"
+                                             SelectedItem="{Binding SelectedFireCurveType}"/>
                     <extensions:DataEntryCell Label="Heat Transfer Coefficient" Unit="W/m²°C" Value="{Binding HeatTransferCoeffficient}" Placeholder="Enter value"/>
                 </TableSection>
             </TableRoot>
         </TableView>
+
 
         <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" Clicked="Calculate_Clicked"/>
     </StackLayout>
