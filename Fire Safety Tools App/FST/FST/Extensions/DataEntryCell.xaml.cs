@@ -19,16 +19,19 @@ namespace FST.Extensions
             BindableProperty.Create("Unit", typeof(string), typeof(ViewCell));
 
         public static readonly BindableProperty ValueProperty =
-        BindableProperty.Create("Value", typeof(string), typeof(ViewCell), null, defaultBindingMode: BindingMode.TwoWay, validateValue: null, propertyChanged: (bindable, oldValue, newValue) =>
+        BindableProperty.Create("Value", typeof(string), typeof(ViewCell), null,
+            defaultBindingMode: BindingMode.TwoWay,
+            validateValue: null,
+            propertyChanged: (bindable, oldValue, newValue) =>
         {
             ((DataEntryCell)bindable).OnPropertyChanged();
         });
 
-        //public static readonly BindableProperty ValueProperty =
-        //    BindableProperty.Create("Value", typeof(string), typeof(ViewCell));
-
         public static readonly BindableProperty PlaceholderProperty =
             BindableProperty.Create("Placeholder", typeof(string), typeof(ViewCell));
+
+        public new static readonly BindableProperty IsEnabledProperty =
+            BindableProperty.Create("IsEnabled", typeof(bool), typeof(ViewCell), true);
 
         public string Label
         {
@@ -52,6 +55,12 @@ namespace FST.Extensions
         {
             get { return (string)GetValue(PlaceholderProperty); }
             set { SetValue(PlaceholderProperty, value); }
+        }
+
+        public new bool IsEnabled
+        {
+            get { return (bool)GetValue(IsEnabledProperty); }
+            set { SetValue(IsEnabledProperty, value); }
         }
 
         public DataEntryCell()

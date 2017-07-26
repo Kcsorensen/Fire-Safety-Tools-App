@@ -42,7 +42,7 @@ namespace FST.Tools.SteelHeatingUnderFire
                     SteelEmissivity = 0.6,
                     FireCurve = 0,
                     HeatTransferCoeffficient = 25,
-                    IsSteelProtected = false,
+                    IsSteelProtected = true,
                     IsoThickness = 0.05,
                     IsoThermalConductivity = 0.2,
                     IsoDensity = 150,
@@ -53,7 +53,20 @@ namespace FST.Tools.SteelHeatingUnderFire
             var db = await _connection.Table<SteelHeatingTable>().FirstAsync();
 
             // Overfører værdier fra db til DataModel
-            //DataModel.Temperature = db.Temperature;
+            DataModel.SimulationTime = db.SimulationTime;
+            DataModel.SteelSectionFactor = db.SteelSectionFactor;
+            DataModel.SteelDensity = db.SteelDensity;
+            DataModel.SteelSpecificHeat = db.SteelSpecificHeat;
+            DataModel.SteelEmissivity = db.SteelEmissivity;
+            DataModel.FireCurve = db.FireCurve;
+            DataModel.HeatTransferCoeffficient = db.HeatTransferCoeffficient;
+            DataModel.IsSteelProtected = db.IsSteelProtected;
+            DataModel.IsoThickness = db.IsoThickness;
+            DataModel.IsoThermalConductivity = db.IsoThermalConductivity;
+            DataModel.IsoDensity = db.IsoDensity;
+            DataModel.IsoSpecificHeat = db.IsoSpecificHeat;
+
+            BindingContext = DataModel;
 
             base.OnAppearing();
         }

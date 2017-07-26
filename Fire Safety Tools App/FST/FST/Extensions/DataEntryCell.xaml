@@ -6,7 +6,7 @@
     
     <StackLayout BindingContext="{x:Reference dataEntryCell}" x:Name="stackLayout" Orientation="Horizontal" Padding="15, 8, 10, 8">
         <Label Text="{Binding Label}" VerticalOptions="Center"/>
-        <Entry Keyboard="Numeric" Text="{Binding Value}" Placeholder="{Binding Placeholder}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"/>
+        <Entry Keyboard="Numeric" Text="{Binding Value}" Placeholder="{Binding Placeholder}" IsEnabled="{Binding IsEnabled}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"/>
         <Label Text="{Binding Unit}" VerticalOptions="Center"/>
     </StackLayout>
     

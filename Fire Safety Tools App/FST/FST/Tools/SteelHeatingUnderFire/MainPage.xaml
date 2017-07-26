@@ -9,28 +9,38 @@
         <ToolbarItem Name="Test" Order="Secondary" Icon="info.png" Text="About" Clicked="Info_Clicked"/>
     </ContentPage.ToolbarItems>
 
-    <StackLayout x:Name="parentStackLayout" Orientation="Vertical" >
+    <StackLayout x:Name="parentStackLayout" Orientation="Vertical">
         <TableView HasUnevenRows="True">
             <TableRoot>
                 <TableSection Title="Simulation Settings">
-                    <extensions:DataEntryCell Label="Simulation Time" Unit="hours" Value="{Binding CellSize}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Simulation Time" Unit="hours" Value="{Binding SimulationTime}" Placeholder="Enter value"/>
                 </TableSection>
                 <TableSection Title="Steel Conditions">
-                    <extensions:DataEntryCell Label="Section Factor" Unit="1/m" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell Label="Density" Unit="kg/m³" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell Label="Specific Heat" Unit="J/kg°C" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell Label="Emissivity" Unit="-" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Section Factor" Unit="1/m" Value="{Binding SteelSectionFactor}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Density" Unit="kg/m³" Value="{Binding SteelDensity}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Specific Heat" Unit="J/kg°C" Value="{Binding SteelSpecificHeat}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Emissivity" Unit="-" Value="{Binding SteelEmissivity}" Placeholder="Enter value"/>
                 </TableSection>
                 <TableSection Title="Insulation Conditions">
-                    <extensions:DataEntryCell Label="Is the Steel Protected?" Unit="-" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell Label="Thickness" Unit="m" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell Label="Thermal Conductivity" Unit="W/m°C" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell Label="Density" Unit="kg/m³" Value="{Binding HeatReleaseRate}" Placeholder="Enter value"/>
+                    <SwitchCell x:Name="isSteelProtected" Text="Is the Steel Protected?" On="{Binding IsSteelProtected, Mode=TwoWay}"/>
+                    <extensions:DataEntryCell Label="Thickness" Unit="m" 
+                                              Value="{Binding IsoThickness}" 
+                                              Placeholder="Enter value" 
+                                              IsEnabled="{Binding Source={x:Reference isSteelProtected}, Path=On}"/>
+                    <extensions:DataEntryCell Label="Thermal Conductivity" Unit="W/m°C" 
+                                              Value="{Binding IsoThermalConductivity}" 
+                                              Placeholder="Enter value"
+                                              IsEnabled="{Binding Source={x:Reference isSteelProtected}, Path=On}"/>
+                    <extensions:DataEntryCell Label="Density" Unit="kg/m³" 
+                                              Value="{Binding IsoDensity}" 
+                                              Placeholder="Enter value"
+                                              IsEnabled="{Binding Source={x:Reference isSteelProtected}, Path=On}"/>
+
                 </TableSection>
                 
                 <TableSection Title="Fire Conditions">
-                    <extensions:DataEntryCell Label="Fire Curve" Unit="-" Value="{Binding Temperature}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell Label="Heat Transfer Coefficient" Unit="W/m²°C" Value="{Binding SpecificHeat}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Fire Curve" Unit="-" Value="{Binding FireCurve}" Placeholder="Enter value"/>
+                    <extensions:DataEntryCell Label="Heat Transfer Coefficient" Unit="W/m²°C" Value="{Binding HeatTransferCoeffficient}" Placeholder="Enter value"/>
                 </TableSection>
             </TableRoot>
         </TableView>
