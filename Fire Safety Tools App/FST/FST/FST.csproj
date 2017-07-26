@@ -69,6 +69,9 @@
     <Compile Include="Tools\SteelHeatingUnderFire\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tools\SteelHeatingUnderFire\ResultPage.xaml.cs">
+      <DependentUpon>ResultPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tools\SteelHeatingUnderFire\SteelHeatingTable.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -155,7 +158,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Tools\SteelHeatingUnderFire\ResultPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Tools\SteelHeatingUnderFire\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

@@ -1,4 +1,6 @@
 ﻿using FST.Models;
+using OxyPlot;
+using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +18,18 @@ namespace FST.Tools.SteelHeatingUnderFire
         private double _steelSpecificHeat;
         private double _isoSpecificHeat;
         private double _steelEmissivity;
-        private int _fireCurve;
+        private int _fireCurveType;
         private double _heatTransferCoeffficient;
         private bool _isSteelProtected;
         private double _isoThickness;
         private double _isoThermalConductivity;
         private double _isoDensity;
+
+        private double _dt;
+        private double _epsilon;
+        private List<double> _T_steel;
+        //private List<double> _dT_steel;
+        private List<double> _t;
         #endregion
 
         #region public properties
@@ -50,10 +58,10 @@ namespace FST.Tools.SteelHeatingUnderFire
             get { return _steelEmissivity; }
             set { SetValue(ref _steelEmissivity, value); }
         }
-        public int FireCurve
+        public int FireCurveType
         {
-            get { return _fireCurve; }
-            set { SetValue(ref _fireCurve, value); }
+            get { return _fireCurveType; }
+            set { SetValue(ref _fireCurveType, value); }
         }
         public double HeatTransferCoeffficient
         {
@@ -85,10 +93,118 @@ namespace FST.Tools.SteelHeatingUnderFire
             get { return _isoSpecificHeat; }
             set { SetValue(ref _isoSpecificHeat, value); }
         }
+
+        public List<Tuple<double, double>> FireCurve { get; set; }
+
+
         #endregion
 
+        public DataModel()
+        {
+            // Hver time deles op i 120 dele
+            _dt = 1.0 / 120;
 
+            // Stefan–Boltzmann constant
+            _epsilon = 5.670367 * Math.Pow(10, -8);
+        }
 
+        public async Task UpdateFireCurveAsync()
+        {
+            // Bestem hvor mange tidsskridt der skal være i beregningen ud fra den angivet simuleringstid. 
+            // Hvis dt ikke går op i den angivet simuleringstid, rundes tidsskridtet op til nærmeste heltal.
+            int timeSteps = Convert.ToInt32(Math.Ceiling( SimulationTime / _dt ));
 
+            // Clear listen for tid.
+            _t = new List<double>();
+
+            // Clear listen for Stålets temperatur og sæt første værdi til 20 °C
+            _T_steel = new List<double>() { 20 };
+
+            // Clear listen med data for FireCurve og sæt første dataset til tid = 0 min og ståltemperatur = 20 °C.
+            FireCurve = new List<Tuple<double, double>>() { new Tuple<double, double>(0, 20) };
+
+            // Lav en liste med alle tidsskridt i minutter, som også er x-akse på grafen. [0, 0.5, 1, 1.5, 2, ....]
+            await Task.Run(() =>
+            {
+                for (int i = 0; i <= timeSteps; i++)
+                {
+                    _t.Add(_dt * i * 60.0);
+                }
+            });
+
+            if (FireCurveType == 0)
+            {
+                for (int i = 0; i < timeSteps; i++)
+                {
+                    var _dt_half = _t[i] + (_dt * 60) / 2.0;
+
+                    var fireTemperature = await _getFireCurveValueAsync(_dt_half, FireCurveType);
+
+                    var _dT_steel = await _getDeltaSteelTemperatureAsync(_T_steel[i], fireTemperature);
+
+                    _T_steel.Add(_T_steel[i] + _dT_steel);
+
+                    FireCurve.Add(new Tuple<double, double>(_t[i + 1], _T_steel[i + 1]));
+                }
+            }
+        }
+
+        public async Task<LineSeries> GetLinesSeriesForPlotModelAsync()
+        {
+            var lineSeries = new LineSeries()
+            {
+                MarkerType = MarkerType.None,
+            };
+
+            await Task.Run(() =>
+            {
+                foreach (var dataSet in FireCurve)
+                {
+                    lineSeries.Points.Add(new DataPoint(dataSet.Item1, dataSet.Item2));
+                }
+            });
+
+            return lineSeries;
+        }
+
+        /// <summary>
+        /// Beregn brandens flammetemperatur til en given tid [min] og type af standardbrand.
+        /// </summary>
+        /// <param name="time"></param>
+        /// <param name="fireCurveType"></param>
+        /// <returns></returns>
+        private async Task<double> _getFireCurveValueAsync(double time, int fireCurveType)
+        {
+            double result = 0.0;
+
+            await Task.Run(() =>
+            {
+                if (fireCurveType == 0)
+                {
+                    result = 20.0 + 345.0 * Math.Log10(8.0 * time + 1);
+                }
+            });
+
+            return result;
+        }
+
+        /// <summary>
+        /// Beregn ståltemperaturen for det nye tidskridt ud fra det tidligere tidsskridts stråltemperatur og flammetemperaturen for tiden t + dt/2
+        /// </summary>
+        /// <param name="_T_steel_pre"></param>
+        /// <param name="fireTemperature"></param>
+        /// <returns></returns>
+        private async Task<double> _getDeltaSteelTemperatureAsync(double _T_steel_pre, double fireTemperature)
+        {
+            double result = 0.0;
+
+            await Task.Run(() =>
+            {
+                result = SteelSectionFactor * 1.0 / (SteelDensity * SteelSpecificHeat) *
+                    (HeatTransferCoeffficient * (fireTemperature - _T_steel_pre) + SteelEmissivity * _epsilon * (Math.Pow(fireTemperature + 273, 4) - Math.Pow(_T_steel_pre + 273, 4))) * _dt * 3600;
+            });
+
+            return result;
+        }
     }
 }

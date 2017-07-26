@@ -89,3 +89,10 @@ C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FS
 C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\Xamarin.Forms.Platform.pdb
 C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\kcs\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\obj\Debug\FST.Tools.SteelHeatingUnderFire.ResultPage.xaml.g.cs
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\OxyPlot.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\OxyPlot.Xamarin.Forms.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\OxyPlot.pdb
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\OxyPlot.xml
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\OxyPlot.Xamarin.Forms.pdb
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\OxyPlot.Xamarin.Forms.xml

@@ -15,6 +15,9 @@ namespace FST
 
             MainPage = new NavigationPage(new FST.MainPage());
         }
+        
+        
+
 
         protected override void OnStart()
         {

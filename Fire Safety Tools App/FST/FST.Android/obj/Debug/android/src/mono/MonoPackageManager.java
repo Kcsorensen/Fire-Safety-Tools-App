@@ -100,6 +100,10 @@ class MonoPackageManager_Resources {
 		/* We need to ensure that "FST.Android.dll" comes first in this list. */
 		"FST.Android.dll",
 		"FormsViewGroup.dll",
+		"OxyPlot.dll",
+		"OxyPlot.Xamarin.Android.dll",
+		"OxyPlot.Xamarin.Forms.dll",
+		"OxyPlot.Xamarin.Forms.Platform.Android.dll",
 		"PCLStorage.Abstractions.dll",
 		"PCLStorage.dll",
 		"SQLite-net.dll",

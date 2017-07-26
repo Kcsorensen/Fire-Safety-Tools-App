@@ -2,6 +2,14 @@ FST.Droid.MainActivity, FST.Android;md5514de7ae639daf63ccd5b1fe6833fc21.MainActi
 FST.Droid.MainActivity, FST.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5514de7ae639daf63ccd5b1fe6833fc21.MainActivity
 FST.Droid.MainActivity;md5514de7ae639daf63ccd5b1fe6833fc21.MainActivity
 fst.droid.MainActivity;md5514de7ae639daf63ccd5b1fe6833fc21.MainActivity
+OxyPlot.Xamarin.Android.PlotView, OxyPlot.Xamarin.Android;md576548fdf6897b70553b6b405e9653aa0.PlotView
+OxyPlot.Xamarin.Android.PlotView, OxyPlot.Xamarin.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md576548fdf6897b70553b6b405e9653aa0.PlotView
+OxyPlot.Xamarin.Android.PlotView;md576548fdf6897b70553b6b405e9653aa0.PlotView
+oxyplot.xamarin.android.PlotView;md576548fdf6897b70553b6b405e9653aa0.PlotView
+OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer, OxyPlot.Xamarin.Forms.Platform.Android;md5c8feee4b08a9919828f8d567dfe427a4.PlotViewRenderer
+OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer, OxyPlot.Xamarin.Forms.Platform.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5c8feee4b08a9919828f8d567dfe427a4.PlotViewRenderer
+OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer;md5c8feee4b08a9919828f8d567dfe427a4.PlotViewRenderer
+oxyplot.xamarin.forms.platform.android.PlotViewRenderer;md5c8feee4b08a9919828f8d567dfe427a4.PlotViewRenderer
 Android.Support.Design.Widget.Snackbar/SnackbarActionClickImplementor, Xamarin.Android.Support.Design;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
 Android.Support.Design.Widget.Snackbar+SnackbarActionClickImplementor, Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
 Android.Support.Design.Widget.Snackbar.SnackbarActionClickImplementor;android.support.design.widget.Snackbar_SnackbarActionClickImplementor

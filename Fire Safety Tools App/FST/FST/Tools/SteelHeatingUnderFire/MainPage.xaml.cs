@@ -1,11 +1,7 @@
 ﻿using FST.Persistance;
 using SQLite;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -40,7 +36,7 @@ namespace FST.Tools.SteelHeatingUnderFire
                     SteelDensity = 7850,
                     SteelSpecificHeat = 600,
                     SteelEmissivity = 0.6,
-                    FireCurve = 0,
+                    FireCurveType = 0,
                     HeatTransferCoeffficient = 25,
                     IsSteelProtected = true,
                     IsoThickness = 0.05,
@@ -58,7 +54,7 @@ namespace FST.Tools.SteelHeatingUnderFire
             DataModel.SteelDensity = db.SteelDensity;
             DataModel.SteelSpecificHeat = db.SteelSpecificHeat;
             DataModel.SteelEmissivity = db.SteelEmissivity;
-            DataModel.FireCurve = db.FireCurve;
+            DataModel.FireCurveType = db.FireCurveType;
             DataModel.HeatTransferCoeffficient = db.HeatTransferCoeffficient;
             DataModel.IsSteelProtected = db.IsSteelProtected;
             DataModel.IsoThickness = db.IsoThickness;
@@ -81,9 +77,13 @@ namespace FST.Tools.SteelHeatingUnderFire
 
         }
 
-        private void Calculate_Clicked(object sender, EventArgs e)
+        private async Task Calculate_Clicked(object sender, EventArgs e)
         {
+            await DataModel.UpdateFireCurveAsync();
 
+            var lineSeries = await DataModel.GetLinesSeriesForPlotModelAsync();
+
+            await Navigation.PushAsync(new ResultPage(lineSeries));
         }
     }
 }
