@@ -1,7 +1,6 @@
 ﻿using FST.Persistance;
 using SQLite;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -70,12 +69,12 @@ namespace FST.Tools.SteelHeatingUnderFire
 
         private void Clear_Clicked(object sender, EventArgs e)
         {
-
+            // TODO: Mangler Clear-funktionen
         }
 
         private void Info_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new InfoPage());
         }
 
         private async Task Calculate_Clicked(object sender, EventArgs e)
@@ -98,11 +97,12 @@ namespace FST.Tools.SteelHeatingUnderFire
 
             await _connection.UpdateAsync(db);
 
-            await DataModel.UpdateFireCurveAsync();
+            // TODO: Så om jeg kan lave en Activation Indikator som vises mens UpdateFireCurveAsync køres.
+            await DataModel.UpdateFireCurvesAsync();
 
             var lineSeries = await DataModel.GetLinesSeriesForPlotModelAsync();
 
-            await Navigation.PushAsync(new ResultPage(lineSeries));
+            await Navigation.PushAsync(new ResultGraphPage(lineSeries));
         }
     }
 }

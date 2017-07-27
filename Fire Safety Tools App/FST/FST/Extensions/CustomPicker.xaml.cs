@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,7 +11,13 @@ namespace FST.Extensions
             BindableProperty.Create("ItemSource", typeof(IEnumerable), typeof(ViewCell));
 
         public static readonly BindableProperty SelectedItemProperty =
-            BindableProperty.Create("SelectedItem", typeof(string), typeof(ViewCell));
+            BindableProperty.Create("SelectedItem", typeof(string), typeof(ViewCell), null, 
+                defaultBindingMode: BindingMode.TwoWay,
+                validateValue: null,
+                propertyChanged: (bindable, oldValue, newValue) => 
+                {
+                    ((CustomPicker)bindable).OnPropertyChanged();
+                });
 
         public static readonly BindableProperty LabelProperty =
             BindableProperty.Create("Label", typeof(string), typeof(ViewCell));

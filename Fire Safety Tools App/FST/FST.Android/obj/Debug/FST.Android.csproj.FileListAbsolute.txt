@@ -157,3 +157,15 @@ C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\android\assets\OxyPlot.dll.mdb
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\android\assets\OxyPlot.Xamarin.Forms.dll.mdb
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\android\assets\OxyPlot.Xamarin.Forms.Platform.Android.dll.mdb
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable\ic_arrow_forward_white_48dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable-hdpi\ic_arrow_forward_white_48dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable-xhdpi\ic_arrow_forward_white_48dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable-xxhdpi\ic_arrow_forward_white_48dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable\ic_arrow_forward_white_36dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable-hdpi\ic_arrow_forward_white_36dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable-xhdpi\ic_arrow_forward_white_36dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable-xxhdpi\ic_arrow_forward_white_36dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable-xxhdpi\ic_arrow_forward_white_24dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable-xhdpi\ic_arrow_forward_white_24dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable\ic_arrow_forward_white_24dp.png
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\res\drawable-hdpi\ic_arrow_forward_white_24dp.png

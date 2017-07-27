@@ -14,6 +14,7 @@ namespace FST.Tools.CheckMeshSize
     {
         public InfoPage()
         {
+            // TODO: InfoPage skal laves færdig.
             InitializeComponent();
         }
     }

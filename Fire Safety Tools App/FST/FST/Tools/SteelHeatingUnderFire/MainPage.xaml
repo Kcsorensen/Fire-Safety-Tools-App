@@ -4,10 +4,10 @@
              xmlns:extensions="clr-namespace:FST.Extensions"
              xmlns:local="clr-namespace:FST.Tools.SteelHeatingUnderFire"
              x:Class="FST.Tools.SteelHeatingUnderFire.MainPage">
-
+    
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Test" Order="Primary" Text="Clear" Clicked="Clear_Clicked"/>
-        <ToolbarItem Name="Test" Order="Secondary" Icon="info.png" Text="About" Clicked="Info_Clicked"/>
+        <ToolbarItem Order="Primary" Text="Clear" Clicked="Clear_Clicked"/>
+        <ToolbarItem Order="Secondary" Icon="info.png" Text="About" Clicked="Info_Clicked"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout x:Name="parentStackLayout" Orientation="Vertical">
@@ -15,6 +15,7 @@
             <TableRoot>
                 <TableSection Title="Simulation Settings">
                     <extensions:DataEntryCell Label="Simulation Time" Unit="hours" Value="{Binding SimulationTime}" Placeholder="Enter value"/>
+                    <SwitchCell Text="Show Detailed Data Table" />
                 </TableSection>
                 <TableSection Title="Steel Conditions">
                     <extensions:DataEntryCell Label="Section Factor" Unit="1/m" Value="{Binding SteelSectionFactor}" Placeholder="Enter value"/>
@@ -24,7 +25,6 @@
                 </TableSection>
                 <TableSection Title="Insulation Conditions">
                     <SwitchCell x:Name="isSteelProtected" Text="Is the Steel Protected?" On="{Binding IsSteelProtected, Mode=TwoWay}"/>
-
                     <extensions:DataEntryCell Label="Thickness" Unit="m" 
                                               Value="{Binding IsoThickness}" 
                                               Placeholder="Enter value" 
@@ -37,16 +37,19 @@
                                               Value="{Binding IsoDensity}" 
                                               Placeholder="Enter value"
                                               IsEnabled="{Binding Source={x:Reference isSteelProtected}, Path=On}"/>
+                    <extensions:DataEntryCell Label="Specific Heat" Unit="J/kg°C" 
+                                              Value="{Binding IsoSpecificHeat}" 
+                                              Placeholder="Enter value"
+                                              IsEnabled="{Binding Source={x:Reference isSteelProtected}, Path=On}"/>
                 </TableSection>
                 <TableSection Title="Fire Conditions">
                     <extensions:CustomPicker Label="Fire Curve" 
-                                             ItemSource="{Binding ListOfFireCurveTypes}"
+                                             ItemSource="{Binding Source={x:Static local:FireCurveTypes.Current}, Path=List}"
                                              SelectedItem="{Binding SelectedFireCurveType}"/>
                     <extensions:DataEntryCell Label="Heat Transfer Coefficient" Unit="W/m²°C" Value="{Binding HeatTransferCoeffficient}" Placeholder="Enter value"/>
                 </TableSection>
             </TableRoot>
         </TableView>
-
 
         <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" Clicked="Calculate_Clicked"/>
     </StackLayout>

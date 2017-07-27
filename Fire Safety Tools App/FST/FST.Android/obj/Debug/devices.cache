@@ -8,4 +8,12 @@
     <ResultingAbi></ResultingAbi>
     <SdkVersion>24</SdkVersion>
   </Device>
+  <Device id="192.168.0.90:5555">
+    <ResultingAbi>armeabi-v7a</ResultingAbi>
+    <SdkVersion>24</SdkVersion>
+  </Device>
+  <Device id="192.168.226.101:5555">
+    <ResultingAbi>x86</ResultingAbi>
+    <SdkVersion>23</SdkVersion>
+  </Device>
 </Devices>

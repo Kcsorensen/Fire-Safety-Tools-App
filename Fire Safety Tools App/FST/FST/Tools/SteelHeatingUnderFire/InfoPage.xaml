@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FST.Tools.SteelHeatingUnderFire.InfoPage">
+
+    <ScrollView>
+        <StackLayout Style="{StaticResource defaultParentPageStyle}">
+            <Label Text="General" FontSize="Medium"/>
+            <Label Text="This tool calculates the lumped transient temperature of steel under fire conditions using standard time-temperature curves. You can select unprotected or protected steel, and various input parameters can be changed."/>
+            <Label Text="References" FontSize="Medium"/>
+            <Label Text="More information on the above equations can be found in the textbook Structural Design for Fire Safety by Buchanan"/>
+        </StackLayout>
+    </ScrollView>
+    
+</ContentPage>

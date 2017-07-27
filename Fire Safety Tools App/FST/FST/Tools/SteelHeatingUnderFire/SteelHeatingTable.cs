@@ -13,17 +13,14 @@ namespace FST.Tools.SteelHeatingUnderFire
         public int Id { get; set; }
 
         public double SimulationTime { get; set; }
-
         public double SteelSectionFactor { get; set; }
         public double SteelDensity { get; set; }
         public double SteelSpecificHeat { get; set; }
         public double SteelEmissivity { get; set; }
-
         public string SelectedFireCurveType { get; set; }
         public double HeatTransferCoeffficient { get; set; }
-
+        public bool ShowDetailedDataTable { get; set; }
         public bool IsSteelProtected { get; set; }
-
         public double IsoThickness { get; set; }
         public double IsoThermalConductivity { get; set; }
         public double IsoDensity { get; set; }
