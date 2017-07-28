@@ -9,49 +9,53 @@
         <ToolbarItem Order="Primary" Text="Clear" Clicked="Clear_Clicked"/>
         <ToolbarItem Order="Secondary" Icon="info.png" Text="About" Clicked="Info_Clicked"/>
     </ContentPage.ToolbarItems>
-
-    <StackLayout x:Name="parentStackLayout" Orientation="Vertical">
-        <TableView HasUnevenRows="True">
-            <TableRoot>
-                <TableSection Title="Simulation Settings">
-                    <extensions:DataEntryCell Label="Simulation Time" Unit="hours" Value="{Binding SimulationTime}" Placeholder="Enter value"/>
-                    <SwitchCell Text="Show Detailed Data Table" />
-                </TableSection>
-                <TableSection Title="Steel Conditions">
-                    <extensions:DataEntryCell Label="Section Factor" Unit="1/m" Value="{Binding SteelSectionFactor}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell Label="Density" Unit="kg/m³" Value="{Binding SteelDensity}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell Label="Specific Heat" Unit="J/kg°C" Value="{Binding SteelSpecificHeat}" Placeholder="Enter value"/>
-                    <extensions:DataEntryCell Label="Emissivity" Unit="-" Value="{Binding SteelEmissivity}" Placeholder="Enter value"/>
-                </TableSection>
-                <TableSection Title="Insulation Conditions">
-                    <SwitchCell x:Name="isSteelProtected" Text="Is the Steel Protected?" On="{Binding IsSteelProtected, Mode=TwoWay}"/>
-                    <extensions:DataEntryCell Label="Thickness" Unit="m" 
+    
+    <Grid>
+        <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center" />
+        <StackLayout x:Name="parentStackLayout" Orientation="Vertical">
+            <TableView HasUnevenRows="True">
+                <TableRoot>
+                    <TableSection Title="Simulation Settings">
+                        <extensions:DataEntryCell Label="Simulation Time" Unit="hours" Value="{Binding SimulationTime}" Placeholder="Enter value"/>
+                        <SwitchCell Text="Show Detailed Data Table" On="{Binding ShowDetailedDataTable}" />
+                    </TableSection>
+                    <TableSection Title="Steel Conditions">
+                        <extensions:DataEntryCell Label="Section Factor" Unit="1/m" Value="{Binding SteelSectionFactor}" Placeholder="Enter value"/>
+                        <extensions:DataEntryCell Label="Density" Unit="kg/m³" Value="{Binding SteelDensity}" Placeholder="Enter value"/>
+                        <extensions:DataEntryCell Label="Specific Heat" Unit="J/kg°C" Value="{Binding SteelSpecificHeat}" Placeholder="Enter value"/>
+                        <extensions:DataEntryCell Label="Emissivity" Unit="-" Value="{Binding SteelEmissivity}" Placeholder="Enter value"/>
+                    </TableSection>
+                    <TableSection Title="Insulation Conditions">
+                        <SwitchCell x:Name="isSteelProtected" Text="Is the Steel Protected?" On="{Binding IsSteelProtected, Mode=TwoWay}"/>
+                        <extensions:DataEntryCell Label="Thickness" Unit="m" 
                                               Value="{Binding IsoThickness}" 
                                               Placeholder="Enter value" 
                                               IsEnabled="{Binding Source={x:Reference isSteelProtected}, Path=On}"/>
-                    <extensions:DataEntryCell Label="Thermal Conductivity" Unit="W/m°C" 
+                        <extensions:DataEntryCell Label="Thermal Conductivity" Unit="W/m°C" 
                                               Value="{Binding IsoThermalConductivity}" 
                                               Placeholder="Enter value"
                                               IsEnabled="{Binding Source={x:Reference isSteelProtected}, Path=On}"/>
-                    <extensions:DataEntryCell Label="Density" Unit="kg/m³" 
+                        <extensions:DataEntryCell Label="Density" Unit="kg/m³" 
                                               Value="{Binding IsoDensity}" 
                                               Placeholder="Enter value"
                                               IsEnabled="{Binding Source={x:Reference isSteelProtected}, Path=On}"/>
-                    <extensions:DataEntryCell Label="Specific Heat" Unit="J/kg°C" 
+                        <extensions:DataEntryCell Label="Specific Heat" Unit="J/kg°C" 
                                               Value="{Binding IsoSpecificHeat}" 
                                               Placeholder="Enter value"
                                               IsEnabled="{Binding Source={x:Reference isSteelProtected}, Path=On}"/>
-                </TableSection>
-                <TableSection Title="Fire Conditions">
-                    <extensions:CustomPicker Label="Fire Curve" 
+                    </TableSection>
+                    <TableSection Title="Fire Conditions">
+                        <extensions:CustomPicker Label="Fire Curve" 
                                              ItemSource="{Binding Source={x:Static local:FireCurveTypes.Current}, Path=List}"
                                              SelectedItem="{Binding SelectedFireCurveType}"/>
-                    <extensions:DataEntryCell Label="Heat Transfer Coefficient" Unit="W/m²°C" Value="{Binding HeatTransferCoeffficient}" Placeholder="Enter value"/>
-                </TableSection>
-            </TableRoot>
-        </TableView>
+                        <extensions:DataEntryCell Label="Heat Transfer Coefficient" Unit="W/m²°C" Value="{Binding HeatTransferCoeffficient}" Placeholder="Enter value"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
 
-        <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" Clicked="Calculate_Clicked"/>
-    </StackLayout>
+            <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" Clicked="Calculate_Clicked"/>
+        </StackLayout>
+    </Grid>
+    
     
 </ContentPage>

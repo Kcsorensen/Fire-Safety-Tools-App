@@ -5,10 +5,25 @@
 
     <ScrollView>
         <StackLayout Style="{StaticResource defaultParentPageStyle}">
-            <Label Text="General" FontSize="Medium"/>
+            <Label Text="Introduction" FontSize="Medium"/>
+            <Label Text="The purpose of the heat transfer analysis is to determine the time required for the structural member to attain a predetermined critical temperature or to provide input to a structural analysis. The temperature endpoint criteria cited by ISO 834 are often accepted as the critical temperatures in Europe."/>
             <Label Text="This tool calculates the lumped transient temperature of steel under fire conditions using standard time-temperature curves. You can select unprotected or protected steel, and various input parameters can be changed."/>
+            <Label Text="Time-temperature Curves" FontSize="Medium"/>
+            <Label Text="You can choose between two fire curves. The ISO 834 used in DS/EN 1993-1-2 and ASTM E119 used in America"/>
+            <Label Text="ISO 834:" FontAttributes="Bold"/>
+            <Label Text="Standard time-temperature relationship according to ISO 834 (for representing a fully developed compartment fire):"/>
+            <Image Source="ISO_834_Equation.png" WidthRequest="150" HorizontalOptions="Start" Margin="0, 5, 0, 5"/>
+            <Label Text="Where: t = time (minutes), T&#8320; = initial temperature (°C), and T = fire temperature (°C)" />
+            <Label Text="This model can be used in many engineering applications; the use of this model depends on purpose of calculations and should be used when no extra information of the fire is available. The main characteristics of this model are: the fire is assumed to be active within the whole compartment (even if the compartment is huge), independent of the actual size of this compartment; the fire never decays, not even after all combustible materials have been exhausted; it does not depend on the compartment's fire load nor on ventilation conditions" />
+            <Label Text="ASTM E118:" FontAttributes="Bold"/>
+            <Label Text="The time-temperature relationship for the ASTM E119 standard fire can be approximated by the following equation:" />
+            <Image Source="ASTM_E118_Equation.png" WidthRequest="325" HorizontalOptions="Start" Margin="0, 5, 0, 5"/>
+            <Label Text="Where: t&#8341; = time (hours), T&#8320; = initial temperature (°C), and Tf = fire temperature (°C)" />
             <Label Text="References" FontSize="Medium"/>
-            <Label Text="More information on the above equations can be found in the textbook Structural Design for Fire Safety by Buchanan"/>
+            <Label Text="Information on the how the steel temperature is calculated, can be found in the textbook Structural Design for Fire Safety (1st Edition) by Andrew H. Buchanan"/>
+            <Label Text="Information on the time-temperature curves used in this application, can be found in the SFPE Handbook of Fire Protection Engineering Chapter 9 (Analytical Methods for Determining Fire Resistance of Steel Members) by James A. Milke and the papir A new curve for temperature-time relationship in compartment fire by Milan Dj. Blagojevic"/>
+            <Label Text="Information on what time-temperature curve that can be applied in Denmark and/or Europe, can be found in DS/EN 1993-1-2:2009" 
+                   Style="{StaticResource defaultLastLabelOnInfoPageStyle}"/>
         </StackLayout>
     </ScrollView>
     

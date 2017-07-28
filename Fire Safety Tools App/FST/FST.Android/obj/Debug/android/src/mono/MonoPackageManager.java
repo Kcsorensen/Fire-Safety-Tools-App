@@ -106,6 +106,7 @@ class MonoPackageManager_Resources {
 		"OxyPlot.Xamarin.Forms.Platform.Android.dll",
 		"PCLStorage.Abstractions.dll",
 		"PCLStorage.dll",
+		"SkiaSharp.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_green.dll",
 		"SQLitePCLRaw.batteries_v2.dll",

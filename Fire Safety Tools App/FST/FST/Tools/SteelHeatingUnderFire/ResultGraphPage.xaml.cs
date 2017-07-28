@@ -11,10 +11,12 @@ namespace FST.Tools.SteelHeatingUnderFire
     public partial class ResultGraphPage : ContentPage
     {
         private List<LineSeries> _lineSeries;
+        private bool _showDetailedDataTable;
 
-        public ResultGraphPage(List<LineSeries> lineSeries)
+        public ResultGraphPage(List<LineSeries> lineSeries, bool showDetailedDataTable)
         {
             _lineSeries = lineSeries;
+            _showDetailedDataTable = showDetailedDataTable;
             
             InitializeComponent();
 
@@ -67,7 +69,7 @@ namespace FST.Tools.SteelHeatingUnderFire
 
         private void Forward_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new ResultDataTablePage(_lineSeries));
+            Navigation.PushAsync(new ResultDataTablePage(_lineSeries, _showDetailedDataTable));
         }
     }
 }

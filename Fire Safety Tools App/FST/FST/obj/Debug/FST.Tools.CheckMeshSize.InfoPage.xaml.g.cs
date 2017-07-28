@@ -11,8 +11,8 @@
 namespace FST.Tools.CheckMeshSize {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("c:\\users\\kcsorensen\\documents\\visual studio 2017\\Projects\\Fire Safety Tools App\\F" +
-        "ST\\FST\\Tools\\CheckMeshSize\\InfoPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\kcsorensen\\Documents\\GitHub\\Fire-Safety-Tools-App\\Fire Safety Tools App\\" +
+        "FST\\FST\\Tools\\CheckMeshSize\\InfoPage.xaml")]
     public partial class InfoPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

@@ -99,3 +99,5 @@ C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\obj\Debug\FST.Tools.SteelHeatingUnderFire.InfoPage.xaml.g.cs
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\obj\Debug\FST.Tools.SteelHeatingUnderFire.ResultGraphPage.xaml.g.cs
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\obj\Debug\FST.Tools.SteelHeatingUnderFire.ResultDataTablePage.xaml.g.cs
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\SkiaSharp.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\SkiaSharp.xml

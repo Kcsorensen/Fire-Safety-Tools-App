@@ -245,7 +245,6 @@ namespace FST.Tools.SteelHeatingUnderFire
 
             await Task.Run(() =>
             {
-                // TODO: Mangler at lave et if for andre Fire Curves.
                 if (fireCurveType == FireCurveTypes.ISO834)
                 {
                     result = 20.0 + 345.0 * Math.Log10(8.0 * time + 1);

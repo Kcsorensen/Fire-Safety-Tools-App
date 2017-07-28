@@ -6,6 +6,7 @@ C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\android\assets\OxyPlot.Xamarin.Forms.Platform.Android.dll
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\android\assets\PCLStorage.Abstractions.dll
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\android\assets\PCLStorage.dll
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\android\assets\SkiaSharp.dll
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\android\assets\SQLite-net.dll
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\android\assets\SQLitePCLRaw.batteries_green.dll
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST.Android\obj\Debug\android\assets\SQLitePCLRaw.batteries_v2.dll

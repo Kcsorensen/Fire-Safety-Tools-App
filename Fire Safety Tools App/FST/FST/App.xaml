@@ -6,10 +6,15 @@
 
         <ResourceDictionary>
             <Style x:Key="defaultParentPageStyle" TargetType="Layout">
-                <Setter Property="Margin" Value="15, 15, 10, 15"/>
+                <Setter Property="Margin" Value="15, 15, 10, 0"/>
             </Style>
+            
             <Style x:Key="defaultCellStyle" TargetType="Layout">
                 <Setter Property="Padding" Value="15, 8, 10, 8"/>
+            </Style>
+
+            <Style x:Key="defaultLastLabelOnInfoPageStyle" TargetType="Label">
+                <Setter Property="Margin" Value="0, 0, 0, 15"/>
             </Style>
         </ResourceDictionary>
 
