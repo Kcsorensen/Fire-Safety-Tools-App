@@ -36,7 +36,7 @@ namespace FST.Tools.SteelHeatingUnderFire
                     // Find ud af hvor mange gange 30 min går op i simuleringstiden.
                     var factor =  Math.Floor(_lineSeries[0].Points.Max(a => a.X) / 30.0);
 
-                    for (int i = 0; i < factor; i++)
+                    for (int i = 0; i <= factor; i++)
                     {
                         DataTable.Add(new DataSet()
                         {
@@ -67,7 +67,7 @@ namespace FST.Tools.SteelHeatingUnderFire
                     // Find ud af hvor mange gange 30 min går op i simuleringstiden.
                     var factor = Math.Floor(_lineSeries[0].Points.Max(a => a.X) / 30.0);
 
-                    for (int i = 0; i < factor; i++)
+                    for (int i = 0; i <= factor; i++)
                     {
                         DataTable.Add(new DataSet()
                         {

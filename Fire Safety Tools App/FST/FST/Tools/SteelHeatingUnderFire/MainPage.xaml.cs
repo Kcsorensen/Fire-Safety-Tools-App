@@ -133,7 +133,6 @@ namespace FST.Tools.SteelHeatingUnderFire
 
             activityIndicator.IsRunning = true;
 
-            // TODO: Så om jeg kan lave en Activation Indikator som vises mens UpdateFireCurveAsync køres.
             await DataModel.UpdateFireCurvesAsync();
 
             activityIndicator.IsRunning = false;

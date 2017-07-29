@@ -68,6 +68,12 @@
     <Compile Include="Tools\MeshSizeCalculator\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tools\SmokeUnitConverter\DataModel.cs" />
+    <Compile Include="Tools\SmokeUnitConverter\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\SmokeUnitConverter\SmokeUnits.cs" />
+    <Compile Include="Tools\SmokeUnitConverter\SmokeUnitTable.cs" />
     <Compile Include="Tools\SteelHeatingUnderFire\DataModel.cs" />
     <Compile Include="Tools\SteelHeatingUnderFire\FireCurveTypes.cs" />
     <Compile Include="Tools\SteelHeatingUnderFire\InfoPage.xaml.cs">
@@ -197,6 +203,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Tools\SteelHeatingUnderFire\ResultDataTablePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Tools\SmokeUnitConverter\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

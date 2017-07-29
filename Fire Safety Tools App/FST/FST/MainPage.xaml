@@ -10,9 +10,10 @@
                 <local:NavigateNextCell Label="Check Mesh Size" Tapped="CheckMeshSize_Tapped" />
                 <local:NavigateNextCell Label="Mesh Size Calculator" Tapped="MeshSizeCalculator_Tapped" />
                 <local:NavigateNextCell Label="Transient Steel Heating Calculator" Tapped="SteelHeatingUnderFire_Tapped" />
+                <local:NavigateNextCell Label="Design Fire Creation Kit"  />
             </TableSection>
             <TableSection Title="Miscellaneous">
-                <local:NavigateNextCell Label="Optical Smoke Converter"/>
+                <local:NavigateNextCell Label="Optical Smoke Unit Converter" Tapped="SmokeUnitConverter_Tapped"/>
             </TableSection>
         </TableRoot>
     </TableView>

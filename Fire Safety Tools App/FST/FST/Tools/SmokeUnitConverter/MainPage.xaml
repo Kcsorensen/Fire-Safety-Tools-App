@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:FST.Extensions"
+             x:Class="FST.Tools.SmokeUnitConverter.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Text="Clear" Clicked="Clear_Clicked"/>
+        <ToolbarItem Order="Secondary" Icon="info.png" Text="About" Clicked="Info_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <TableView HasUnevenRows="True">
+            <TableRoot>
+                <TableSection Title="Select Units to Convert">
+                    <extensions:CustomPicker Label="Convert From:" ItemSource="{Binding SortedListConvertFrom}" SelectedItem="{Binding SelectedConvertFrom}"/>
+                    <extensions:CustomPicker Label="Convert To:" ItemSource="{Binding SortedListConvertTo}" SelectedItem="{Binding SelectedConvertTo}"/>
+                </TableSection>
+                <TableSection Title="Required Known Conditions">
+                    <extensions:DataEntryCell Label="Smoke Potential, Fuel (D&#8320;,10log)" Unit="ob m²/g" Placeholder="Enter value" 
+                                              Value="{Binding D010Log}"/>
+                    <extensions:DataEntryCell Label="Smoke Potential, Argos (D&#8320;)" Unit="ob" Placeholder="Enter value" 
+                                              Value="{Binding S0}"/>
+                    <extensions:DataEntryCell Label="Smoke Production (S)" Unit="ob m²/s" Placeholder="Enter value" 
+                                              Value="{Binding S}"/>
+                    <extensions:DataEntryCell Label="Soot Yield (y&#8347;)" Unit="-" Placeholder="Enter value" 
+                                              Value="{Binding Ys}"/>
+                    <extensions:DataEntryCell Label="Heat Release Rate (HRR)" Unit="kW" Placeholder="Enter value" 
+                                              Value="{Binding Hrr}"/>
+                    <extensions:DataEntryCell Label="Heat of Combustion (&#916;Hmat)" Unit="kJ/kg" Placeholder="Enter value" 
+                                              Value="{Binding DeltaHMat}"/>
+                    <extensions:DataEntryCell Label="Ambient Air Enthalpy (&#916;Hair)" Unit="kJ/kg" Placeholder="Enter value" 
+                                              Value="{Binding DeltaHAir}"/>
+                    <extensions:DataEntryCell Label="Ambient Air Density (&#961;&#8320;)" Unit="kW" Placeholder="Enter value" 
+                                              Value="{Binding Rho0}"/>
+                </TableSection>
+            </TableRoot> 
+        </TableView>
+        
+        <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" />
+    </StackLayout>
+    
+</ContentPage>

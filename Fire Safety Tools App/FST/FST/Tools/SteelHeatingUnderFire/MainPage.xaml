@@ -12,7 +12,7 @@
     
     <Grid>
         <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center" />
-        <StackLayout x:Name="parentStackLayout" Orientation="Vertical">
+        <StackLayout Orientation="Vertical">
             <TableView HasUnevenRows="True">
                 <TableRoot>
                     <TableSection Title="Simulation Settings">

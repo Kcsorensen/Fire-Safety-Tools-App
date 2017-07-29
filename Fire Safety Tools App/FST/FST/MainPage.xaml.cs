@@ -25,6 +25,9 @@ namespace FST
             await Navigation.PushAsync(new FST.Tools.SteelHeatingUnderFire.MainPage());
         }
 
-        
+        private async void SmokeUnitConverter_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new FST.Tools.SmokeUnitConverter.MainPage());
+        }
     }
 }
