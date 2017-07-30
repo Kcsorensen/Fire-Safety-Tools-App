@@ -52,33 +52,46 @@ namespace FST.Tools.SmokeUnitConverter
 
         private void CustomPicker_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            // Afhængigt af hvilken kombination af From/To skal kun bestemte Cells under "Required Known Conditions" være synlige.
+            //if (DataModel == null)
+            //    return;
 
-            var test = (tableView.Root[1][0] as DataEntryCell).ClassId;
+            //if (DataModel.SelectedConvertFrom == null)
+            //    return;
 
-            if ((tableView.Root[1][0] as DataEntryCell).Label.Equals(RequiredKnownConditions.D010log))
-            {
-                int i = 1;
-            }
+            //if (DataModel.SelectedConvertTo == null)
+            //    return;
 
-            // Få en lise af alle Cells
+            //// Afhængigt af hvilken kombination af From/To skal kun bestemte Cells under "Required Known Conditions" være synlige.
+
+            //// Få en liste af alle Cells
             //var allDataCells = tableView.Root[1];
+
+            //var test = allDataCells.Where(a => (a as DataEntryCell).ClassId == RequiredKnownConditions.Ys);
 
             //if (DataModel.SelectedConvertTo == SmokeUnits.SmokePotentialArgos)
             //{
-            //    if (DataModel.SelectedConvertTo == SmokeUnits.SootYield)
+            //    List<Cell> selectedDataCells = new List<Cell>();
+
+            //    selectedDataCells.Add(allDataCells.First(a => a.ClassId == RequiredKnownConditions.Density));
+            //    selectedDataCells.Add(allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hair));
+
+            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SootYield)
             //    {
-            //        var selectedDataCells = allDataCells.Where(a => ((DataEntryCell)a).Label == SmokeUnits.po)
+            //        selectedDataCells.Add(allDataCells.First(a => a.ClassId == RequiredKnownConditions.Ys));
+            //        selectedDataCells.Add(allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
+            //        selectedDataCells.Add(allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
             //    }
 
-            //    if (DataModel.SelectedConvertTo == SmokeUnits.SmokeProduction)
+            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokeProduction)
             //    {
-
+            //        selectedDataCells.Add(allDataCells.First(a => a.ClassId == RequiredKnownConditions.S));
+            //        selectedDataCells.Add(allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
             //    }
 
-            //    if (DataModel.SelectedConvertTo == SmokeUnits.SmokePotentialBurnedFuel)
+            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
             //    {
-
+            //        selectedDataCells.Add(allDataCells.First(a => a.ClassId == RequiredKnownConditions.D010log));
+            //        selectedDataCells.Add(allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
             //    }
             //}
 

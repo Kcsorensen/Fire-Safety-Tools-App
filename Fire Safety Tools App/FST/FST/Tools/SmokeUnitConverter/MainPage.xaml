@@ -18,21 +18,32 @@
                     <extensions:CustomPicker Label="Convert To:" ItemSource="{Binding SortedListConvertTo}" SelectedItem="{Binding SelectedConvertTo}"/>
                 </TableSection>
                 <TableSection Title="Required Known Conditions">
-                    <extensions:DataEntryCell Label="Smoke Potential, Fuel (D&#8320;,10log)" Unit="ob m²/g" Placeholder="Enter value" ClassId="test"
-                    Value="{Binding D010Log}"/>
+                    <extensions:DataEntryCell Label="Smoke Potential, Fuel (D&#8320;,10log)" Unit="ob m²/g" Placeholder="Enter value" 
+                                              ClassId="{x:Static local:RequiredKnownConditions.D010log}"
+                                              Value="{Binding D010Log}"/>
                     <extensions:DataEntryCell Label="Smoke Potential, Argos (D&#8320;)" Unit="ob" Placeholder="Enter value" 
+                                              ClassId="{x:Static local:RequiredKnownConditions.S0}"
                                               Value="{Binding S0}"/>
                     <extensions:DataEntryCell Label="Smoke Production (S)" Unit="ob m²/s" Placeholder="Enter value" 
+                                              ClassId="{x:Static local:RequiredKnownConditions.S}"
                                               Value="{Binding S}"/>
+                    <extensions:DataEntryCell Label="Extinction Coefficient (POD)" Unit="m²/kg" Placeholder="Enter value" 
+                                              ClassId="{x:Static local:RequiredKnownConditions.Pod}"
+                                              Value="{Binding Pod}"/>
                     <extensions:DataEntryCell Label="Soot Yield (y&#8347;)" Unit="-" Placeholder="Enter value" 
+                                              ClassId="{x:Static local:RequiredKnownConditions.Ys}"
                                               Value="{Binding Ys}"/>
                     <extensions:DataEntryCell Label="Heat Release Rate (HRR)" Unit="kW" Placeholder="Enter value" 
+                                              ClassId="{x:Static local:RequiredKnownConditions.Hrr}"
                                               Value="{Binding Hrr}"/>
                     <extensions:DataEntryCell Label="Heat of Combustion (&#916;Hmat)" Unit="kJ/kg" Placeholder="Enter value" 
+                                              ClassId="{x:Static local:RequiredKnownConditions.Hmat}"
                                               Value="{Binding DeltaHMat}"/>
                     <extensions:DataEntryCell Label="Ambient Air Enthalpy (&#916;Hair)" Unit="kJ/kg" Placeholder="Enter value" 
+                                              ClassId="{x:Static local:RequiredKnownConditions.Hair}"
                                               Value="{Binding DeltaHAir}"/>
                     <extensions:DataEntryCell Label="Ambient Air Density (&#961;&#8320;)" Unit="kW" Placeholder="Enter value" 
+                                              ClassId="{x:Static local:RequiredKnownConditions.Density}"
                                               Value="{Binding Rho0}"/>
                 </TableSection>
             </TableRoot> 
