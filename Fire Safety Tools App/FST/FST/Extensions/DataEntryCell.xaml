@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FST.Extensions.DataEntryCell"
              x:Name="dataEntryCell">
-    
-    <StackLayout BindingContext="{x:Reference dataEntryCell}" x:Name="stackLayout" Orientation="Horizontal" Padding="15, 8, 10, 8">
+
+    <StackLayout BindingContext="{x:Reference dataEntryCell}" x:Name="stackLayout" Orientation="Horizontal" Padding="15, 8, 10, 8" IsVisible="{Binding IsVisible}">
         <Label Text="{Binding Label}" VerticalOptions="Center"/>
         <Entry Keyboard="Numeric" Text="{Binding Value}" Placeholder="{Binding Placeholder}" IsEnabled="{Binding IsEnabled}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"/>
         <Label Text="{Binding Unit}" VerticalOptions="Center"/>
     </StackLayout>
-    
+
 </ViewCell>

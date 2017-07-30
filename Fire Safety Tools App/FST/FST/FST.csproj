@@ -72,6 +72,7 @@
     <Compile Include="Tools\SmokeUnitConverter\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tools\SmokeUnitConverter\RequiredKnownConditions.cs" />
     <Compile Include="Tools\SmokeUnitConverter\SmokeUnits.cs" />
     <Compile Include="Tools\SmokeUnitConverter\SmokeUnitTable.cs" />
     <Compile Include="Tools\SteelHeatingUnderFire\DataModel.cs" />

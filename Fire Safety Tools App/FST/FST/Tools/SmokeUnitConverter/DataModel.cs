@@ -80,7 +80,8 @@ namespace FST.Tools.SmokeUnitConverter
             get { return _selectedConvertFrom; }
             set
             {
-                populateOppesiteConvertList(value);
+                if (value != _selectedConvertFrom && value != null)
+                    populateOppesiteConvertList(value);
 
                 SetValue(ref _selectedConvertFrom, value);
             }
@@ -90,7 +91,8 @@ namespace FST.Tools.SmokeUnitConverter
             get { return _selectedConvertTo; }
             set
             {
-                populateOppesiteConvertList(value);
+                if (value != _selectedConvertTo && value != null)
+                    populateOppesiteConvertList(value);
 
                 SetValue(ref _selectedConvertTo, value);
             }
@@ -107,48 +109,71 @@ namespace FST.Tools.SmokeUnitConverter
         }
         #endregion
 
+        public DataModel()
+        {
+            SortedListConvertFrom = new ObservableCollection<string>();
+            SortedListConvertTo = new ObservableCollection<string>();
+
+            foreach (var smokeUnit in SmokeUnits.List.OrderBy(a => a))
+            {
+                SortedListConvertFrom.Add(smokeUnit);
+                SortedListConvertTo.Add(smokeUnit);
+            }
+
+            SelectedConvertFrom = SmokeUnits.SmokePotentialArgos;
+            SelectedConvertTo = SmokeUnits.SootYield;
+        }
+
         private void populateOppesiteConvertList(string value, [CallerMemberName] string updatedSelected = null)
         {
             if (updatedSelected == "SelectedConvertFrom")
             {
-                if (SortedListConvertTo != null)
-                {
-                    SortedListConvertTo.Remove(_selectedConvertFrom);
-                    SortedListConvertTo.Add(value);
-                }
-
-                if (SortedListConvertTo == null)
-                {
-                    SortedListConvertTo = new ObservableCollection<string>();
-
-                    foreach (var smokeUnit in SmokeUnits.List)
-                    {
-                        SortedListConvertTo.Add(smokeUnit);
-                    }
-
+                if (SmokeUnits.List.Any(a => a == value))
                     SortedListConvertTo.Remove(value);
+
+                if (SmokeUnits.List.Any(a => a == _selectedConvertFrom))
+                    SortedListConvertTo.Add(_selectedConvertFrom);
+
+                var sorted = SortedListConvertTo.OrderBy(a => a).ToList();
+
+                var selectedConvertTo = _selectedConvertTo;
+
+                if (_selectedConvertFrom != null)
+                {
+                    int correctIndex = sorted.BinarySearch(_selectedConvertFrom);
+
+                    if (correctIndex >= 0)
+                        SortedListConvertTo.Move(SortedListConvertTo.Count - 1, correctIndex);
                 }
+
+                // TODO: Et hack for at undgå at SelectedConvertTo bliver null efter at SortedListConvertFrom bliver alfabetisk sorteret.
+                _selectedConvertTo = selectedConvertTo;
+                SelectedConvertTo = selectedConvertTo;
             }
 
             if (updatedSelected == "SelectedConvertTo")
             {
-                if (SortedListConvertFrom != null)
-                {
-                    SortedListConvertFrom.Remove(_selectedConvertTo);
-                    SortedListConvertFrom.Add(value);
-                }
-
-                if (SortedListConvertFrom == null)
-                {
-                    SortedListConvertFrom = new ObservableCollection<string>();
-
-                    foreach (var smokeUnit in SmokeUnits.List)
-                    {
-                        SortedListConvertFrom.Add(smokeUnit);
-                    }
-
+                if (SmokeUnits.List.Any(a => a == value))
                     SortedListConvertFrom.Remove(value);
+
+                if (SmokeUnits.List.Any(a => a == _selectedConvertTo))
+                    SortedListConvertFrom.Add(_selectedConvertTo);
+
+                var sorted = SortedListConvertFrom.OrderBy(a => a).ToList();
+
+                var selectedConvertFrom = _selectedConvertFrom;
+
+                if (_selectedConvertTo != null)
+                {
+                    int correctIndex = sorted.BinarySearch(_selectedConvertTo);
+
+                    if (correctIndex >= 0)
+                        SortedListConvertFrom.Move(SortedListConvertFrom.Count - 1, correctIndex);
                 }
+
+                // TODO: Et hack for at undgå at SelectedConvertFrom bliver null efter at SortedListConvertTo bliver alfabetisk sorteret.
+                _selectedConvertFrom = selectedConvertFrom;
+                SelectedConvertFrom = selectedConvertFrom;
             }
         }
     }
