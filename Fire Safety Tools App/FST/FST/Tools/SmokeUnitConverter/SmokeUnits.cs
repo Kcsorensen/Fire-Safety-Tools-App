@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FST.Tools.SmokeUnitConverter
 {
@@ -23,16 +19,7 @@ namespace FST.Tools.SmokeUnitConverter
             SmokePotentialBurnedFuel,
             SmokePotentialArgos,
             SmokeProduction,
-            SootYield,
-            HeatReleaseRate,
-            HeatOfCombustion,
-            ExtenctionCoefficient,
-            AirDensity,
-            EnthalpyForAir
+            SootYield
         };
     }
-
-    
-
-
 }

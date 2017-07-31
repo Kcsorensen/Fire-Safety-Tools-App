@@ -26,6 +26,9 @@ namespace FST.Tools.SmokeUnitConverter
         private string _selectedConvertTo;
         private ObservableCollection<string> _sortedListConvertFrom;
         private ObservableCollection<string> _sortedListConvertTo;
+
+        private bool _applyChangesToSelectedFrom;
+        private bool _applyChangesToSelectedTo;
         #endregion
 
         #region public properties
@@ -80,10 +83,14 @@ namespace FST.Tools.SmokeUnitConverter
             get { return _selectedConvertFrom; }
             set
             {
-                if (value != _selectedConvertFrom && value != null)
-                    populateOppesiteConvertList(value);
+                if (_applyChangesToSelectedFrom == true)
+                {
+                    if (value != null)
+                        if (value != _selectedConvertFrom)
+                            populateOppesiteConvertList(value);
 
-                SetValue(ref _selectedConvertFrom, value);
+                    SetValue(ref _selectedConvertFrom, value);
+                }
             }
         }
         public string SelectedConvertTo
@@ -91,10 +98,14 @@ namespace FST.Tools.SmokeUnitConverter
             get { return _selectedConvertTo; }
             set
             {
-                if (value != _selectedConvertTo && value != null)
-                    populateOppesiteConvertList(value);
+                if (_applyChangesToSelectedTo == true)
+                {
+                    if(value != null)
+                        if (value != _selectedConvertTo)
+                            populateOppesiteConvertList(value);
 
-                SetValue(ref _selectedConvertTo, value);
+                    SetValue(ref _selectedConvertTo, value);
+                }
             }
         }
         public ObservableCollection<string> SortedListConvertFrom
@@ -120,6 +131,10 @@ namespace FST.Tools.SmokeUnitConverter
                 SortedListConvertTo.Add(smokeUnit);
             }
 
+            // TODO: SmokeUnitConverter, Et hack for at få sammenspillet mellem SelectedConvertFrom og SelectedConvertTo til at virke.
+            _applyChangesToSelectedFrom = true;
+            _applyChangesToSelectedTo = true;
+
             SelectedConvertFrom = SmokeUnits.SmokePotentialArgos;
             SelectedConvertTo = SmokeUnits.SootYield;
         }
@@ -128,11 +143,17 @@ namespace FST.Tools.SmokeUnitConverter
         {
             if (updatedSelected == "SelectedConvertFrom")
             {
+                // Et hack
+                _applyChangesToSelectedTo = false;
+
                 if (SmokeUnits.List.Any(a => a == value))
                     SortedListConvertTo.Remove(value);
 
                 if (SmokeUnits.List.Any(a => a == _selectedConvertFrom))
                     SortedListConvertTo.Add(_selectedConvertFrom);
+
+                // Et hack
+                _applyChangesToSelectedTo = true;
 
                 var sorted = SortedListConvertTo.OrderBy(a => a).ToList();
 
@@ -146,18 +167,25 @@ namespace FST.Tools.SmokeUnitConverter
                         SortedListConvertTo.Move(SortedListConvertTo.Count - 1, correctIndex);
                 }
 
-                // TODO: Et hack for at undgå at SelectedConvertTo bliver null efter at SortedListConvertFrom bliver alfabetisk sorteret.
+                // TODO: SmokeUnitConverter, Et hack for at undgå at SelectedConvertTo bliver null efter at SortedListConvertFrom bliver alfabetisk sorteret.
                 _selectedConvertTo = selectedConvertTo;
                 SelectedConvertTo = selectedConvertTo;
+
             }
 
             if (updatedSelected == "SelectedConvertTo")
             {
+                // Et hack
+                _applyChangesToSelectedFrom = false;
+
                 if (SmokeUnits.List.Any(a => a == value))
                     SortedListConvertFrom.Remove(value);
 
                 if (SmokeUnits.List.Any(a => a == _selectedConvertTo))
                     SortedListConvertFrom.Add(_selectedConvertTo);
+
+                // Et hack
+                _applyChangesToSelectedFrom = true;
 
                 var sorted = SortedListConvertFrom.OrderBy(a => a).ToList();
 
@@ -171,10 +199,89 @@ namespace FST.Tools.SmokeUnitConverter
                         SortedListConvertFrom.Move(SortedListConvertFrom.Count - 1, correctIndex);
                 }
 
-                // TODO: Et hack for at undgå at SelectedConvertFrom bliver null efter at SortedListConvertTo bliver alfabetisk sorteret.
+                // TODO: SmokeUnitConverter, Et hack for at undgå at SelectedConvertFrom bliver null efter at SortedListConvertTo bliver alfabetisk sorteret.
                 _selectedConvertFrom = selectedConvertFrom;
                 SelectedConvertFrom = selectedConvertFrom;
+
             }
+        }
+
+        public double Calculate()
+        {
+            double result = 0;
+
+            if (SelectedConvertTo == SmokeUnits.SmokePotentialArgos)
+            {
+                if (SelectedConvertFrom == SmokeUnits.SootYield)
+                {
+                    result = Pod * Ys * (10.0 / Math.Log(10.0)) * (DeltaHAir / DeltaHMat) * Rho0;
+                }
+
+                if (SelectedConvertFrom == SmokeUnits.SmokeProduction)
+                {
+                    result = (S / Hrr) * DeltaHAir * Rho0;
+                }
+
+                if (SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
+                {
+                    result = (1000.0 * DeltaHAir * D010Log * Rho0) / DeltaHMat;
+                }
+            }
+
+            if (SelectedConvertTo == SmokeUnits.SmokePotentialBurnedFuel)
+            {
+                if (SelectedConvertFrom == SmokeUnits.SootYield)
+                {
+                    result = ( 10.0 * Pod * Ys ) / (1000.0 * Math.Log(10.0));
+                }
+
+                if (SelectedConvertFrom == SmokeUnits.SmokeProduction)
+                {
+                    result = (S * DeltaHMat) / (1000.0 * Hrr);
+                }
+
+                if (SelectedConvertFrom == SmokeUnits.SmokePotentialArgos)
+                {
+                    result = (S0 * DeltaHMat) / (1000.0 * Rho0 * DeltaHAir);
+                }
+            }
+
+            if (SelectedConvertTo == SmokeUnits.SootYield)
+            {
+                if (SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
+                {
+                    result = (1000 * D010Log * Math.Log(10.0)) / (10.0 * Pod);
+                }
+
+                if (SelectedConvertFrom == SmokeUnits.SmokeProduction)
+                {
+                    result = (S * Math.Log(10.0) * DeltaHMat) / (10.0 * Hrr * Pod);
+                }
+
+                if (SelectedConvertFrom == SmokeUnits.SmokePotentialArgos)
+                {
+                    result = (S0 * Math.Log(10.0) * DeltaHMat) / (10.0 * Pod * DeltaHAir * Rho0);
+                }
+            }
+
+            if (SelectedConvertTo == SmokeUnits.SmokeProduction)
+            {
+                if (SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
+                {
+                    result = (1000.0 * D010Log * Hrr) / DeltaHMat;   
+                }
+
+                if (SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
+                {
+                    result = (Ys * 10.0 * Hrr * Pod) / (Math.Log(10.0) * DeltaHMat);
+                }
+
+                if (SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
+                {
+                    result = (S0 * Hrr) / (DeltaHAir * Rho0);
+                }
+            }
+                return Math.Round(result, 2);
         }
     }
 }

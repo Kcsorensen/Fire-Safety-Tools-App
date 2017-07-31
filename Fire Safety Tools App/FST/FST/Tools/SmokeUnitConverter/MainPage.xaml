@@ -21,7 +21,7 @@
                     <extensions:DataEntryCell Label="Smoke Potential, Fuel (D&#8320;,10log)" Unit="ob m²/g" Placeholder="Enter value" 
                                               ClassId="{x:Static local:RequiredKnownConditions.D010log}"
                                               Value="{Binding D010Log}"/>
-                    <extensions:DataEntryCell Label="Smoke Potential, Argos (D&#8320;)" Unit="ob" Placeholder="Enter value" 
+                    <extensions:DataEntryCell Label="Smoke Potential, Argos (S&#8320;)" Unit="ob" Placeholder="Enter value" 
                                               ClassId="{x:Static local:RequiredKnownConditions.S0}"
                                               Value="{Binding S0}"/>
                     <extensions:DataEntryCell Label="Smoke Production (S)" Unit="ob m²/s" Placeholder="Enter value" 
@@ -49,7 +49,7 @@
             </TableRoot> 
         </TableView>
         
-        <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" />
+        <Button Text="Calculate" TextColor="Red" BackgroundColor="Orange" Clicked="Calculate_Clicked"/>
     </StackLayout>
     
 </ContentPage>

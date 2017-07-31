@@ -102,3 +102,4 @@ C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\SkiaSharp.dll
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\bin\Debug\SkiaSharp.xml
 C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\obj\Debug\FST.Tools.SmokeUnitConverter.MainPage.xaml.g.cs
+C:\Users\kcsorensen\Documents\GitHub\Fire-Safety-Tools-App\Fire Safety Tools App\FST\FST\obj\Debug\FST.Tools.SmokeUnitConverter.ResultPage.xaml.g.cs
