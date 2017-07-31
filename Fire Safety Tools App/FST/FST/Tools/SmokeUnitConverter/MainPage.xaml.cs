@@ -34,19 +34,6 @@ namespace FST.Tools.SmokeUnitConverter
 
             DataModel = new DataModel();
 
-            //DataModel = new DataModel()
-            //{
-            //    D010Log = 0.0,
-            //    S = 0.0,
-            //    S0 = 150.0,
-            //    Ys = 0.0,
-            //    Hrr = 1000,
-            //    Pod = 8700,
-            //    DeltaHAir = 3000,
-            //    DeltaHMat = 14000,
-            //    Rho0 = 1.205
-            //};
-
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
         }
 
@@ -66,7 +53,9 @@ namespace FST.Tools.SmokeUnitConverter
                     Pod = 8700,
                     DeltaHAir = 3000,
                     DeltaHMat = 14000,
-                    Rho0 = 1.205
+                    Rho0 = 1.205,
+                    SelectedConvertFrom = SmokeUnits.SmokePotentialArgos,
+                    SelectedConvertTo = SmokeUnits.SootYield
                 });
             }
 
@@ -81,150 +70,194 @@ namespace FST.Tools.SmokeUnitConverter
             DataModel.DeltaHAir = db.DeltaHAir;
             DataModel.DeltaHMat = db.DeltaHMat;
             DataModel.Rho0 = db.Rho0;
+            DataModel.SelectedConvertFrom = db.SelectedConvertFrom;
+            DataModel.SelectedConvertTo = db.SelectedConvertTo;
 
             BindingContext = DataModel;
 
             base.OnAppearing();
         }
 
-        private void Clear_Clicked(object sender, EventArgs e)
+        private async void Clear_Clicked(object sender, EventArgs e)
         {
-            // TODO: SmokeUnitConverter, Mangler Clear-funktion.
+            DataModel.D010Log = 0.0;
+            DataModel.S = 0.0;
+            DataModel.S0 = 150.0;
+            DataModel.Ys = 0.0;
+            DataModel.Hrr = 1000;
+            DataModel.Pod = 8700;
+            DataModel.DeltaHAir = 3000;
+            DataModel.DeltaHMat = 14000;
+            DataModel.Rho0 = 1.205;
+            DataModel.SelectedConvertFrom = SmokeUnits.SmokePotentialArgos;
+            DataModel.SelectedConvertTo = SmokeUnits.SootYield;
+
+            var db = await _connection.Table<SmokeUnitTable>().FirstAsync();
+
+            db.D010Log = DataModel.D010Log;
+            db.S = DataModel.S;
+            db.S0 = DataModel.S0;
+            db.Ys = DataModel.Ys;
+            db.Hrr = DataModel.Hrr;
+            db.Pod = DataModel.Pod;
+            db.DeltaHAir = DataModel.DeltaHAir;
+            db.DeltaHMat = DataModel.DeltaHMat;
+            db.Rho0 = DataModel.Rho0;
+            db.SelectedConvertFrom = DataModel.SelectedConvertFrom;
+            db.SelectedConvertTo = DataModel.SelectedConvertTo;
+
+            await _connection.UpdateAsync(db);
         }
 
         private void Info_Clicked(object sender, EventArgs e)
         {
-            // TODO: SmokeUnitConverter, Mangler InfoPage-funktion.
+            Navigation.PushAsync(new InfoPage());
         }
 
         // Afhængigt af hvilken kombination af From/To skal kun bestemte Cells under "Required Known Conditions" være synlige.
         private void CustomPicker_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            //if (DataModel == null)
-            //    return;
+            if (DataModel == null)
+                return;
 
-            //if (DataModel.SelectedConvertFrom == null)
-            //    return;
+            if (DataModel.SelectedConvertFrom == null)
+                return;
 
-            //if (DataModel.SelectedConvertTo == null)
-            //    return;
+            if (DataModel.SelectedConvertTo == null)
+                return;
 
-            //TableSection selectedDataCells = new TableSection();
+            TableSection selectedDataCells = new TableSection();
 
-            //if (DataModel.SelectedConvertTo == SmokeUnits.SmokePotentialArgos)
-            //{
-            //    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Density));
-            //    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hair));
+            if (DataModel.SelectedConvertTo == SmokeUnits.SmokePotentialArgos)
+            {
+                selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Density));
+                selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hair));
 
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SootYield)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Ys));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
-            //    }
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SootYield)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Ys));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
+                }
 
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokeProduction)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
-            //    }
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SmokeProduction)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
+                }
 
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.D010log));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
-            //    }
-            //}
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.D010log));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
+                }
+            }
 
-            //if (DataModel.SelectedConvertTo == SmokeUnits.SmokePotentialBurnedFuel)
-            //{
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SootYield)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Ys));
-            //    }
+            if (DataModel.SelectedConvertTo == SmokeUnits.SmokePotentialBurnedFuel)
+            {
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SootYield)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Ys));
+                }
 
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokeProduction)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
-            //    }
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SmokeProduction)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
+                }
 
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialArgos)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S0));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hair));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Density));
-            //    }
-            //}
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialArgos)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S0));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hair));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Density));
+                }
+            }
 
-            //if (DataModel.SelectedConvertTo == SmokeUnits.SootYield)
-            //{
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.D010log));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
-            //    }
+            if (DataModel.SelectedConvertTo == SmokeUnits.SootYield)
+            {
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.D010log));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
+                }
 
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokeProduction)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
-            //    }
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SmokeProduction)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
+                }
 
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialArgos)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S0));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hair));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Density));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
-            //    }
-            //}
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialArgos)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S0));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hair));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Density));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
+                }
+            }
 
-            //if (DataModel.SelectedConvertTo == SmokeUnits.SmokeProduction)
-            //{
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.D010log));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
-            //    }
+            if (DataModel.SelectedConvertTo == SmokeUnits.SmokeProduction)
+            {
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.D010log));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
+                }
 
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SootYield)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Ys));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
-            //    }
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SootYield)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Ys));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Pod));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hmat));
+                }
 
-            //    if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialArgos)
-            //    {
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S0));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hair));
-            //        selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Density));
-            //    }
-            //}
+                if (DataModel.SelectedConvertFrom == SmokeUnits.SmokePotentialArgos)
+                {
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.S0));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hrr));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Hair));
+                    selectedDataCells.Add(_allDataCells.First(a => a.ClassId == RequiredKnownConditions.Density));
+                }
+            }
 
-            //tableView.Root[1].Clear();
+            tableView.Root[1].Clear();
 
-            //foreach (var cell in selectedDataCells.OrderBy(a => (a as DataEntryCell).Label))
-            //{
-            //    tableView.Root[1].Add(cell);
-            //}
+            foreach (var cell in selectedDataCells.OrderBy(a => (a as DataEntryCell).Label))
+            {
+                tableView.Root[1].Add(cell);
+            }
         }
 
-        private void Calculate_Clicked(object sender, EventArgs e)
+        private async void Calculate_Clicked(object sender, EventArgs e)
         {
-            var result = DataModel.Calculate();
+            var db = await _connection.Table<SmokeUnitTable>().FirstAsync();
 
-            Navigation.PushAsync(new ResultPage(result));
+            db.D010Log = DataModel.D010Log;
+            db.S = DataModel.S;
+            db.S0 = DataModel.S0;
+            db.Ys = DataModel.Ys;
+            db.Hrr = DataModel.Hrr;
+            db.Pod = DataModel.Pod;
+            db.DeltaHAir = DataModel.DeltaHAir;
+            db.DeltaHMat = DataModel.DeltaHMat;
+            db.Rho0 = DataModel.Rho0;
+            db.SelectedConvertFrom = DataModel.SelectedConvertFrom;
+            db.SelectedConvertTo = DataModel.SelectedConvertTo;
+
+            await _connection.UpdateAsync(db);
+                
+            var result = DataModel.Calculate();
+            
+            await Navigation.PushAsync(new ResultPage(result));
         }
     }
 }

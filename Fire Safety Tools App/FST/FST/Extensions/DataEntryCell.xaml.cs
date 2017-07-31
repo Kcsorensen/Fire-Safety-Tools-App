@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace FST.Extensions
 {
+    // TODO: Se om det kan lade sig gøre at lave DataEntryCell med to Label over hinanden. Den øverste tilgåes med Label="", mens den nedereste tilgåes med Term="".
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DataEntryCell : ViewCell
     {

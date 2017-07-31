@@ -21,7 +21,7 @@ namespace FST.Tools.SmokeUnitConverter
         public string SelectedConvertFrom { get; set; }
         public string SelectedConvertTo { get; set; }
 
-        public List<string> SortedListConvertFrom { get; set; }
-        public List<string> SortedListConvertTo { get; set; }
+        //public List<string> SortedListConvertFrom { get; set; }
+        //public List<string> SortedListConvertTo { get; set; }
     }
 }

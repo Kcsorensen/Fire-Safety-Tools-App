@@ -2,9 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FST.Tools.SmokeUnitConverter.ResultPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding}" />
-        </StackLayout>
-    </ContentPage.Content>
+    
+    <StackLayout x:Name="parentStackLayout" Style="{StaticResource defaultParentPageStyle}">
+        <Label Text="Result:" FontSize="Medium" FontAttributes="Bold"/>
+        <Label Text="With the applied pre-requesits:"/>
+        <Label Text="{Binding PrerequesitsText}" />
+        <Label Text="{Binding ResultText}" />
+
+    </StackLayout>
+
 </ContentPage>

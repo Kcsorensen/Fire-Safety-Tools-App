@@ -214,17 +214,17 @@ namespace FST.Tools.SmokeUnitConverter
             {
                 if (SelectedConvertFrom == SmokeUnits.SootYield)
                 {
-                    result = Pod * Ys * (10.0 / Math.Log(10.0)) * (DeltaHAir / DeltaHMat) * Rho0;
+                    result = Math.Round(Pod * Ys * (10.0 / Math.Log(10.0)) * (DeltaHAir / DeltaHMat) * Rho0, 1);
                 }
 
                 if (SelectedConvertFrom == SmokeUnits.SmokeProduction)
                 {
-                    result = (S / Hrr) * DeltaHAir * Rho0;
+                    result = Math.Round((S / Hrr) * DeltaHAir * Rho0, 1);
                 }
 
                 if (SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
                 {
-                    result = (1000.0 * DeltaHAir * D010Log * Rho0) / DeltaHMat;
+                    result = Math.Round((1000.0 * DeltaHAir * D010Log * Rho0) / DeltaHMat, 1);
                 }
             }
 
@@ -232,17 +232,17 @@ namespace FST.Tools.SmokeUnitConverter
             {
                 if (SelectedConvertFrom == SmokeUnits.SootYield)
                 {
-                    result = ( 10.0 * Pod * Ys ) / (1000.0 * Math.Log(10.0));
+                    result = Math.Round(( 10.0 * Pod * Ys ) / (1000.0 * Math.Log(10.0)), 2);
                 }
 
                 if (SelectedConvertFrom == SmokeUnits.SmokeProduction)
                 {
-                    result = (S * DeltaHMat) / (1000.0 * Hrr);
+                    result = Math.Round((S * DeltaHMat) / (1000.0 * Hrr), 2);
                 }
 
                 if (SelectedConvertFrom == SmokeUnits.SmokePotentialArgos)
                 {
-                    result = (S0 * DeltaHMat) / (1000.0 * Rho0 * DeltaHAir);
+                    result = Math.Round((S0 * DeltaHMat) / (1000.0 * Rho0 * DeltaHAir), 2);
                 }
             }
 
@@ -250,17 +250,17 @@ namespace FST.Tools.SmokeUnitConverter
             {
                 if (SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
                 {
-                    result = (1000 * D010Log * Math.Log(10.0)) / (10.0 * Pod);
+                    result = Math.Round((1000 * D010Log * Math.Log(10.0)) / (10.0 * Pod), 4);
                 }
 
                 if (SelectedConvertFrom == SmokeUnits.SmokeProduction)
                 {
-                    result = (S * Math.Log(10.0) * DeltaHMat) / (10.0 * Hrr * Pod);
+                    result = Math.Round((S * Math.Log(10.0) * DeltaHMat) / (10.0 * Hrr * Pod), 4);
                 }
 
                 if (SelectedConvertFrom == SmokeUnits.SmokePotentialArgos)
                 {
-                    result = (S0 * Math.Log(10.0) * DeltaHMat) / (10.0 * Pod * DeltaHAir * Rho0);
+                    result = Math.Round((S0 * Math.Log(10.0) * DeltaHMat) / (10.0 * Pod * DeltaHAir * Rho0), 4);
                 }
             }
 
@@ -268,20 +268,20 @@ namespace FST.Tools.SmokeUnitConverter
             {
                 if (SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
                 {
-                    result = (1000.0 * D010Log * Hrr) / DeltaHMat;   
+                    result = Math.Round((1000.0 * D010Log * Hrr) / DeltaHMat, 2);
                 }
 
                 if (SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
                 {
-                    result = (Ys * 10.0 * Hrr * Pod) / (Math.Log(10.0) * DeltaHMat);
+                    result = Math.Round((Ys * 10.0 * Hrr * Pod) / (Math.Log(10.0) * DeltaHMat), 2);
                 }
 
                 if (SelectedConvertFrom == SmokeUnits.SmokePotentialBurnedFuel)
                 {
-                    result = (S0 * Hrr) / (DeltaHAir * Rho0);
+                    result = Math.Round((S0 * Hrr) / (DeltaHAir * Rho0), 2);
                 }
             }
-                return Math.Round(result, 2);
+                return result;
         }
     }
 }
