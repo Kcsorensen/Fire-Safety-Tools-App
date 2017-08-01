@@ -7,8 +7,8 @@
         <Label Text="Result:" FontSize="Medium" FontAttributes="Bold"/>
         <Label Text="With the applied pre-requesits:"/>
         <Label Text="{Binding PrerequesitsText}" />
+        <Label Text="{Binding ConvertFromText}" />
         <Label Text="{Binding ResultText}" />
-
     </StackLayout>
 
 </ContentPage>
